@@ -116,7 +116,7 @@ main{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,48px) 120px}
     mirage: { num:'PLINTH 01', nombre:'MIRAGE', precio:'$290,000', edicion:'EDITION OF 5', tipo:'ALL-IN-ONE',
       sub:'Two glossy-white speaker pods raised on steel posts over a double-lobe stainless base with two large glossy-white drivers, a white deck bridging them with a docked, removable mixer at its heart. Fine lines of orange, nothing more. The flagship.',
       bp:'plinth-bp-mirage.svg', hero:'plinth-foto-mirage.png',
-      shots:[['plinth-foto-mirage-v1.png','Detail — a glossy-white driver'],['plinth-foto-mirage-v2.png','Docked — the mixer seated in its bay']],
+      shots:[['plinth-foto-mirage-v1.png','Detail — a glossy-white driver'],['plinth-foto-mirage-v2.png','Detail — a speaker pod on its steel post']],
       ficha:[['Format','All-in-one · flagship'],['Shell','Stainless steel'],['Drivers','Glossy white, fine orange ring'],['Deck','White · removable Pioneer mixer'],['Speakers','2 raised pods + 2 base drivers'],['Weight','~280 kg']] },
     nova: { num:'PLINTH 02', nombre:'NOVA', precio:'$310,000', edicion:'EDITION OF 4', tipo:'ALL-IN-ONE',
       sub:'A complete vinyl station in stainless steel — a sculptural console of twin turntables and a crossfader mixer, flanked by two tall speaker towers of glossy-white drivers ringed in fine orange. The whole sound system, cast as one.',
@@ -164,7 +164,7 @@ main{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,48px) 120px}
                   ...(o.shots || []).map(s => [s[0], s[1], s[2] || false]) ];
   if (shots.length === 0) hideReal();
   document.getElementById('pv-gal').innerHTML = shots.map(s =>
-    '<figure class="shot' + (s[2] ? ' shot--wide' : '') + '"><img src="' + s[0] + '?v=close4" alt="' + o.nombre + '"><figcaption>' + s[1] + '</figcaption></figure>'
+    '<figure class="shot' + (s[2] ? ' shot--wide' : '') + '"><img src="' + s[0] + '?v=close5" alt="' + o.nombre + '"><figcaption>' + s[1] + '</figcaption></figure>'
   ).join('');
   document.querySelectorAll('#pv-gal img').forEach(img => {
     img.onerror = () => { img.closest('figure').remove(); if (!document.querySelector('#pv-gal figure')) hideReal(); };
