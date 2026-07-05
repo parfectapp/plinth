@@ -95,7 +95,9 @@ a{color:inherit;text-decoration:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;filter:none;transition:none}}
 /* ===== PLINTH intro curtain ===== */
 #pIntro{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--bone);transition:transform 1.05s cubic-bezier(.76,0,.24,1)}
-#pIntro::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(20,18,16,.5) .5px,transparent .7px);background-size:3px 3px;opacity:.12;mix-blend-mode:multiply}
+/* same paper + grain as the landing */
+#pIntro::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.05;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+#pIntro::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;mix-blend-mode:multiply;background-image:radial-gradient(rgba(20,18,16,.55) 0.5px,transparent 1px);background-size:3.5px 3.5px}
 #pIntro.lift{transform:translateY(-100%)}
 #pWord{display:flex;font-family:'Instrument Serif',serif;font-size:clamp(56px,16vw,240px);line-height:.92;letter-spacing:.04em;color:var(--ink)}
 #pWord .l{display:inline-block;overflow:hidden;padding:.06em .004em 0}
