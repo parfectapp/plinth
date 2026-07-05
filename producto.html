@@ -113,32 +113,32 @@ main{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,48px) 120px}
 <script>
   const V = '?v=ink2';
   const OBJETOS = {
-    mirage: { num:'PLINTH 01', nombre:'MIRAGE', precio:'$88,000', edicion:'EDITION OF 5', tipo:'ALL-IN-ONE',
+    mirage: { num:'PLINTH 01', nombre:'MIRAGE', precio:'$290,000', edicion:'EDITION OF 5', tipo:'ALL-IN-ONE',
       sub:'Two glossy-white speaker pods raised on steel posts over a double-lobe stainless base with two large glossy-white drivers, a white deck bridging them with a docked, removable mixer at its heart. Fine lines of orange, nothing more. The flagship.',
       bp:'plinth-bp-mirage.svg', hero:'plinth-foto-mirage.png',
-      shots:[['plinth-foto-mirage-v1.png','Detail — a glossy-white driver'],['plinth-foto-mirage-v2.png','The white mixer deck']],
+      shots:[['plinth-foto-mirage-v1.png','Detail — a glossy-white driver'],['plinth-foto-mirage-v2.png','Docked — the mixer seated in its bay']],
       ficha:[['Format','All-in-one · flagship'],['Shell','Stainless steel'],['Drivers','Glossy white, fine orange ring'],['Deck','White · removable Pioneer mixer'],['Speakers','2 raised pods + 2 base drivers'],['Weight','~280 kg']] },
-    nova: { num:'PLINTH 02', nombre:'NOVA', precio:'$94,000', edicion:'EDITION OF 4', tipo:'ALL-IN-ONE',
+    nova: { num:'PLINTH 02', nombre:'NOVA', precio:'$310,000', edicion:'EDITION OF 4', tipo:'ALL-IN-ONE',
       sub:'A complete vinyl station in stainless steel — a sculptural console of twin turntables and a crossfader mixer, flanked by two tall speaker towers of glossy-white drivers ringed in fine orange. The whole sound system, cast as one.',
       bp:'plinth-bp-nova.svg', hero:'plinth-foto-nova.png',
       shots:[['plinth-foto-nova-v1.png','Detail — a turntable on the console'],['plinth-foto-nova-v2.png','A speaker tower']],
       ficha:[['Format','All-in-one · vinyl station'],['Shell','Stainless steel'],['Console','2 turntables + mixer'],['Speakers','Two steel towers · multi-driver'],['Drivers','Glossy white, fine orange ring'],['Weight','~340 kg']] },
-    arco: { num:'PLINTH 06', nombre:'ARCO', precio:'$68,000', edicion:'EDITION OF 6', tipo:'BOOTH',
+    arco: { num:'PLINTH 06', nombre:'ARCO', precio:'$220,000', edicion:'EDITION OF 6', tipo:'BOOTH',
       sub:'A single sweep of stainless steel, arched like a bridge, an orange-leather bay recessed flush into its crown for the gear. Molten metal frozen mid-pour.',
       bp:'plinth-bp-arco.svg', hero:'plinth-foto-arco.png',
       shots:[['plinth-foto-arco-v1.png','Detail — the orange-leather deck, no gear'],['plinth-foto-arco-v2.png','The brushed-steel arch']],
       ficha:[['Format','Booth — pair with any speakers'],['Shell','Stainless steel'],['Deck','Orange leather'],['Players','2 × Pioneer CDJ + mixer'],['Form','Cast liquid-metal arch'],['Weight','~180 kg']] },
-    geode: { num:'PLINTH 08', nombre:'GEODE', precio:'$28,000', edicion:'EDITION OF 8', tipo:'SPEAKER',
+    geode: { num:'PLINTH 08', nombre:'GEODE', precio:'$140,000', edicion:'EDITION OF 8', tipo:'SPEAKER',
       sub:'A faceted stainless-steel dodecahedron, a glossy-white driver ringed in a fine line of orange on every face, radiating sound in all directions on a slim steel tripod. An omnidirectional monument.',
       bp:'plinth-bp-geode.svg', hero:'plinth-foto-geode.png',
       shots:[['plinth-foto-geode-v1.png','Detail — a glossy-white driver'],['plinth-foto-geode-v2.png','The sphere on its tripod']],
       ficha:[['Format','Speaker — omnidirectional'],['Body','Stainless faceted steel'],['Drivers','12 faces · glossy-white cones, fine orange ring'],['Stand','Machined steel tripod'],['Weight','~48 kg'],['Lead time','12–16 weeks']] },
-    cornu: { num:'PLINTH 09', nombre:'CORNU', precio:'$42,000', edicion:'EDITION OF 6', tipo:'SPEAKER',
+    cornu: { num:'PLINTH 09', nombre:'CORNU', precio:'$165,000', edicion:'EDITION OF 6', tipo:'SPEAKER',
       sub:'A matched pair of horns in solid stainless steel, each bell lined in glossy white inside — the mouth opening into the room. Sold only as a pair.',
       bp:'plinth-bp-cornu.svg', hero:'plinth-foto-cornu-v2.png',
       shots:[['plinth-foto-cornu-v1.png','Detail — the glossy white bell']],
       ficha:[['Format','Speaker — matched pair'],['Body','Solid stainless steel'],['Finish','Brushed steel outside, glossy white bell'],['Horn','Hand-flared steel bell'],['Weight','~65 kg / pair'],['Lead time','14–18 weeks']] },
-    ingot: { num:'PLINTH 10', nombre:'INGOT', precio:'$32,000', edicion:'EDITION OF 6', tipo:'SPEAKER',
+    ingot: { num:'PLINTH 10', nombre:'INGOT', precio:'$120,000', edicion:'EDITION OF 6', tipo:'SPEAKER',
       sub:'A stainless-steel block with a full-range driver on its face and twin glossy white ceramic horns rising from the top. Raw industry, tuned like a watch.',
       bp:'plinth-bp-ingot.svg', hero:'plinth-foto-ingot.png',
       shots:[['plinth-foto-ingot-v1.png','Detail — a white ceramic horn'],['plinth-foto-ingot-v2.png','The driver on the steel block']],
@@ -153,7 +153,7 @@ main{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,48px) 120px}
   document.getElementById('pv-sub').textContent = o.sub;
   document.getElementById('pv-precio').textContent = o.precio;
   document.getElementById('pv-edicion').textContent = o.edicion;
-  document.getElementById('pv-cta-linea').textContent = o.edicion + ' — DEPOSIT $5,000';
+  document.getElementById('pv-cta-linea').textContent = o.edicion + ' — DEPOSIT $20,000';
 
   const bpImg = document.getElementById('pv-bp-img');
   if (o.bp) { bpImg.src = o.bp + V; bpImg.alt = o.nombre + ' — drawing'; }
@@ -164,7 +164,7 @@ main{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,48px) 120px}
                   ...(o.shots || []).map(s => [s[0], s[1], s[2] || false]) ];
   if (shots.length === 0) hideReal();
   document.getElementById('pv-gal').innerHTML = shots.map(s =>
-    '<figure class="shot' + (s[2] ? ' shot--wide' : '') + '"><img src="' + s[0] + '?v=close2" alt="' + o.nombre + '"><figcaption>' + s[1] + '</figcaption></figure>'
+    '<figure class="shot' + (s[2] ? ' shot--wide' : '') + '"><img src="' + s[0] + '?v=close3" alt="' + o.nombre + '"><figcaption>' + s[1] + '</figcaption></figure>'
   ).join('');
   document.querySelectorAll('#pv-gal img').forEach(img => {
     img.onerror = () => { img.closest('figure').remove(); if (!document.querySelector('#pv-gal figure')) hideReal(); };
