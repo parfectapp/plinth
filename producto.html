@@ -83,7 +83,6 @@ main{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,48px) 120px}
     <h1 id="pv-nombre"></h1>
     <p class="price"><b id="pv-precio"></b><span>·</span><b id="pv-edicion"></b></p>
     <p class="sub" id="pv-sub"></p>
-    <figure class="bp" id="pv-bp"><img id="pv-bp-img" src="" alt=""><figcaption>The drawing</figcaption></figure>
   </section>
 
   <section class="sec" id="pv-real">
@@ -96,6 +95,12 @@ main{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,48px) 120px}
     <p class="hk">Spec</p>
     <h2 class="serif">Made to order</h2>
     <ul id="pv-ficha"></ul>
+  </section>
+
+  <section class="sec bp-sec">
+    <p class="hk">The drawing</p>
+    <h2 class="serif">On paper</h2>
+    <figure class="bp" id="pv-bp"><img id="pv-bp-img" src="" alt=""><figcaption>Technical drawing</figcaption></figure>
   </section>
 
   <section class="sec cta">
@@ -134,10 +139,10 @@ main{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,48px) 120px}
       shots:[['plinth-foto-cornu-v1.png','Detail — the glossy white bell'],['plinth-foto-cornu-v2.png','The horn mouth']],
       ficha:[['Format','Speaker — matched pair'],['Body','Solid stainless steel'],['Finish','Brushed steel outside, glossy white bell'],['Horn','Hand-flared steel bell'],['Weight','~65 kg / pair'],['Lead time','14–18 weeks']] },
     ingot: { num:'PLINTH 10', nombre:'INGOT', precio:'$32,000', edicion:'EDITION OF 6', tipo:'SPEAKER',
-      sub:'A stainless-steel block with a full-range driver on its face and twin white horns lined in orange leather rising from the top. Raw industry, tuned like a watch.',
+      sub:'A stainless-steel block with a full-range driver on its face and twin glossy white ceramic horns rising from the top. Raw industry, tuned like a watch.',
       bp:'plinth-bp-ingot.svg', hero:'plinth-foto-ingot.png',
-      shots:[['plinth-foto-ingot-v1.png','Detail — an orange-leather horn'],['plinth-foto-ingot-v2.png','The driver on the steel block']],
-      ficha:[['Format','Speaker — standalone or pair'],['Body','Stainless steel block'],['Horns','Twin white, orange-leather lined'],['Driver','Full-range'],['Weight','~85 kg'],['Lead time','12–16 weeks']] },
+      shots:[['plinth-foto-ingot-v1.png','Detail — a white ceramic horn'],['plinth-foto-ingot-v2.png','The driver on the steel block']],
+      ficha:[['Format','Speaker — standalone or pair'],['Body','Stainless steel block'],['Horns','Twin glossy white ceramic'],['Driver','Full-range'],['Weight','~85 kg'],['Lead time','12–16 weeks']] },
   };
 
   const clave = new URLSearchParams(location.search).get('p') || 'mirage';
@@ -159,7 +164,7 @@ main{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,48px) 120px}
                   ...(o.shots || []).map(s => [s[0], s[1], s[2] || false]) ];
   if (shots.length === 0) hideReal();
   document.getElementById('pv-gal').innerHTML = shots.map(s =>
-    '<figure class="shot' + (s[2] ? ' shot--wide' : '') + '"><img src="' + s[0] + '?v=close1" alt="' + o.nombre + '"><figcaption>' + s[1] + '</figcaption></figure>'
+    '<figure class="shot' + (s[2] ? ' shot--wide' : '') + '"><img src="' + s[0] + '?v=close2" alt="' + o.nombre + '"><figcaption>' + s[1] + '</figcaption></figure>'
   ).join('');
   document.querySelectorAll('#pv-gal img').forEach(img => {
     img.onerror = () => { img.closest('figure').remove(); if (!document.querySelector('#pv-gal figure')) hideReal(); };
