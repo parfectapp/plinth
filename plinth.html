@@ -66,6 +66,24 @@ a{color:inherit;text-decoration:none}
 .edit p{color:var(--mut);line-height:1.7;max-width:46ch}
 
 /* cta */
+/* collaboration / partner brands */
+.collab{padding:clamp(70px,10vw,120px) 0 clamp(46px,6vw,80px);border-top:1px solid rgba(20,18,16,.14)}
+.collab-head{max-width:1300px;margin:0 auto;padding:0 clamp(20px,4vw,48px) clamp(38px,5vw,60px);text-align:center}
+.collab-head h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(34px,5.5vw,68px);margin:10px 0 14px;line-height:1.03}
+.collab-sub{max-width:54ch;margin:0 auto;color:var(--mut);line-height:1.55}
+.brow{display:flex;align-items:stretch;overflow:hidden;border-top:1px solid rgba(20,18,16,.12);border-bottom:1px solid rgba(20,18,16,.12)}
+.brow + .brow{border-top:none}
+.blabel{flex:none;display:flex;align-items:center;gap:8px;padding:0 clamp(16px,3vw,30px);background:var(--bone2);border-right:1px solid rgba(20,18,16,.12);font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);white-space:nowrap}
+.blabel b{color:var(--amber);font-weight:400}
+.bwrap{flex:1;overflow:hidden;white-space:nowrap}
+.btrack{display:inline-block;animation:bscroll 44s linear infinite}
+.brow.rev .btrack{animation-duration:56s;animation-direction:reverse}
+.bwrap:hover .btrack{animation-play-state:paused}
+.bi{display:inline-flex;align-items:center;padding:20px 0;font-family:'Instrument Serif',serif;font-size:clamp(23px,3.2vw,40px);color:var(--ink);letter-spacing:.005em}
+.bi::after{content:"";width:5px;height:5px;border-radius:50%;background:var(--amber);opacity:.65;margin:0 clamp(24px,3vw,42px)}
+@keyframes bscroll{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.btrack{animation:none}}
+@media(max-width:640px){.blabel{writing-mode:horizontal-tb;font-size:10px;padding:0 14px}.bi{font-size:22px}}
 .cta{background:var(--bone);color:var(--ink);text-align:center;position:relative;overflow:hidden;border-top:1px solid rgba(20,18,16,.16)}
 .cta .in{position:relative;z-index:2;max-width:1000px;margin:0 auto;padding:clamp(90px,13vw,170px) clamp(20px,4vw,48px)}
 .cta h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(52px,9.5vw,132px);line-height:.98;margin:18px 0 28px;color:var(--ink)}
@@ -197,6 +215,28 @@ body.pilock{overflow:hidden}
       <p class="hk">Material</p>
       <h2>Cast, not assembled</h2>
       <p>Every booth is cast as a single piece — smoked glass, quarried stone, hand-laid tile or stone-textured resin. No visible fasteners, no seams. Your rider bolts straight in, and the equipment disappears into the object. Each shell carries a signed plate and its number in the edition.</p>
+    </div>
+  </div>
+</section>
+
+<section class="collab" id="partners">
+  <div class="collab-head">
+    <p class="hk">In collaboration with</p>
+    <h2 class="serif">The best of sound &amp; signal</h2>
+    <p class="collab-sub">Every PLINTH is built around reference speakers and club-grade decks — integrated, tuned by hand, and cast into the object.</p>
+  </div>
+  <div class="brands">
+    <div class="brow">
+      <span class="blabel"><b>▸</b> Speakers</span>
+      <div class="bwrap"><div class="btrack">
+        <span class="bi">Funktion-One</span><span class="bi">Void Acoustics</span><span class="bi">Bowers &amp; Wilkins</span><span class="bi">Focal</span><span class="bi">L-Acoustics</span><span class="bi">Devialet</span><span class="bi">KEF</span><span class="bi">Genelec</span><span class="bi">Dynaudio</span><span class="bi">Funktion-One</span><span class="bi">Void Acoustics</span><span class="bi">Bowers &amp; Wilkins</span><span class="bi">Focal</span><span class="bi">L-Acoustics</span><span class="bi">Devialet</span><span class="bi">KEF</span><span class="bi">Genelec</span><span class="bi">Dynaudio</span>
+      </div></div>
+    </div>
+    <div class="brow rev">
+      <span class="blabel"><b>▸</b> Decks &amp; Mixers</span>
+      <div class="bwrap"><div class="btrack">
+        <span class="bi">Pioneer DJ</span><span class="bi">Allen &amp; Heath</span><span class="bi">Rane</span><span class="bi">Technics</span><span class="bi">Denon DJ</span><span class="bi">Pioneer DJ</span><span class="bi">Allen &amp; Heath</span><span class="bi">Rane</span><span class="bi">Technics</span><span class="bi">Denon DJ</span><span class="bi">Pioneer DJ</span><span class="bi">Allen &amp; Heath</span><span class="bi">Rane</span><span class="bi">Technics</span><span class="bi">Denon DJ</span><span class="bi">Pioneer DJ</span><span class="bi">Allen &amp; Heath</span><span class="bi">Rane</span><span class="bi">Technics</span><span class="bi">Denon DJ</span>
+      </div></div>
     </div>
   </div>
 </section>
