@@ -114,7 +114,7 @@ main{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,48px) 120px}
 
   <section class="sec cta">
     <p class="price" id="pv-cta-linea"></p>
-    <a class="btn" href="plinth.html#commission">Commission this piece</a>
+    <a class="btn" id="pv-cta-link" href="plinth.html#commission">Commission this piece</a>
     <nav class="nav" id="pv-nav"></nav>
   </section>
 </main>
@@ -163,6 +163,7 @@ main{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,48px) 120px}
   document.getElementById('pv-precio').textContent = o.precio;
   document.getElementById('pv-edicion').textContent = o.edicion;
   document.getElementById('pv-cta-linea').textContent = o.edicion + ' — DEPOSIT $20,000';
+  document.getElementById('pv-cta-link').href = 'plinth.html?piece=' + encodeURIComponent(o.nombre) + '#commission';
 
   const bpImg = document.getElementById('pv-bp-img');
   if (o.bp) { bpImg.src = o.bp + V; bpImg.alt = o.nombre + ' — drawing'; }

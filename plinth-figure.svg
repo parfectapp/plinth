@@ -1,0 +1,40 @@
+<svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+<defs><filter id="inkP" x="-35%" y="-35%" width="170%" height="170%">
+<feTurbulence type="fractalNoise" baseFrequency="0.013 0.02" numOctaves="3" seed="41" result="w"/>
+<feDisplacementMap in="SourceGraphic" in2="w" scale="6" xChannelSelector="R" yChannelSelector="G"/>
+</filter></defs>
+
+<!-- floor shadow -->
+<ellipse cx="150" cy="274" rx="116" ry="9" fill="rgba(20,18,16,0.05)"/>
+
+<!-- sound-wave arcs above the head -->
+<path d="M90 58 A66 66 0 0 1 210 58" fill="none" stroke="#C96F2B" stroke-width="1.2" opacity="0.26" stroke-linecap="round"/>
+<path d="M104 68 A52 52 0 0 1 196 68" fill="none" stroke="#C96F2B" stroke-width="1.7" opacity="0.44" stroke-linecap="round"/>
+<path d="M118 78 A38 38 0 0 1 182 78" fill="none" stroke="#C96F2B" stroke-width="1.2" opacity="0.26" stroke-linecap="round"/>
+
+<g filter="url(#inkP)">
+  <!-- shoulders / torso (behind the booth) -->
+  <path d="M76 214 C80 170 108 150 150 150 C192 150 220 170 224 214 Z" fill="#141210"/>
+  <!-- neck -->
+  <rect x="138" y="134" width="24" height="22" fill="#141210"/>
+  <!-- head (faceless) -->
+  <ellipse cx="150" cy="116" rx="24" ry="27" fill="#141210"/>
+  <!-- headphone band -->
+  <path d="M122 106 A29 29 0 0 1 178 106" fill="none" stroke="#141210" stroke-width="8" stroke-linecap="round"/>
+  <!-- ear cups -->
+  <rect x="115" y="104" width="15" height="27" rx="6" fill="#141210"/>
+  <rect x="170" y="104" width="15" height="27" rx="6" fill="#141210"/>
+
+  <!-- DJ booth / console in front -->
+  <rect x="38" y="198" width="224" height="21" rx="5" fill="#141210"/>
+  <rect x="50" y="219" width="200" height="34" rx="3" fill="#141210" opacity="0.94"/>
+  <!-- platters + mixer (light on dark) -->
+  <circle cx="84" cy="208" r="16" fill="#EAE6DF" opacity="0.13"/>
+  <circle cx="216" cy="208" r="16" fill="#EAE6DF" opacity="0.13"/>
+  <rect x="136" y="202" width="28" height="13" rx="2" fill="#EAE6DF" opacity="0.11"/>
+</g>
+
+<!-- amber accents -->
+<circle cx="177" cy="117" r="6.5" fill="#C96F2B"/>
+<circle cx="216" cy="208" r="16" fill="none" stroke="#C96F2B" stroke-width="1.6" opacity="0.6"/>
+</svg>
