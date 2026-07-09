@@ -116,6 +116,15 @@ a{color:inherit;text-decoration:none}
 .look:hover .lk-cta{color:var(--amber)}
 .look::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--amber);transition:width .5s}
 .look:hover::after{width:100%}
+/* feature — lived-with editorial band */
+.feature{display:grid;grid-template-columns:1.08fr 1fr;align-items:stretch;max-width:1300px;margin:0 auto;border-top:1px solid rgba(20,18,16,.14)}
+.feature-img{overflow:hidden}
+.feature-img img{width:100%;height:100%;object-fit:cover;display:block;min-height:clamp(340px,44vw,600px);filter:saturate(.96)}
+.feature-copy{padding:clamp(44px,6vw,92px) clamp(24px,4vw,64px);display:flex;flex-direction:column;justify-content:center;gap:18px;border-left:1px solid rgba(20,18,16,.14)}
+.feature-copy h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(34px,4.6vw,62px);line-height:1.03;margin:0}
+.feature-copy p{color:var(--mut);line-height:1.6;margin:0;max-width:44ch}
+.feature-copy .btn{align-self:flex-start;margin-top:8px}
+@media(max-width:820px){.feature{grid-template-columns:1fr}.feature-copy{border-left:none;border-top:1px solid rgba(20,18,16,.14)}}
 .cta{background:var(--bone);color:var(--ink);text-align:center;position:relative;overflow:hidden;border-top:1px solid rgba(20,18,16,.16)}
 .cta .in{position:relative;z-index:2;max-width:1000px;margin:0 auto;padding:clamp(90px,13vw,170px) clamp(20px,4vw,48px)}
 .cta h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(52px,9.5vw,132px);line-height:.98;margin:18px 0 28px;color:var(--ink)}
@@ -290,29 +299,39 @@ body.pilock{overflow:hidden}
   </div>
   <div class="lookgrid">
     <a class="look" href="producto.html?p=mirage&v=ink2">
-      <img src="plinth-look-1.png?v=look1" alt="MIRAGE in a warm living room" loading="lazy">
+      <img src="plinth-look-1.png?v=look2" alt="MIRAGE in a warm living room" loading="lazy">
       <span class="lk-num">Look 01 — The living room</span>
       <span class="lk-name">MIRAGE</span>
       <span class="lk-cta">See the piece →</span>
     </a>
     <a class="look" href="producto.html?p=nova&v=ink2">
-      <img src="plinth-look-2.png?v=look1" alt="NOVA in a penthouse at dusk" loading="lazy">
+      <img src="plinth-look-2.png?v=look2" alt="NOVA in a penthouse at dusk" loading="lazy">
       <span class="lk-num">Look 02 — The penthouse</span>
       <span class="lk-name">NOVA</span>
       <span class="lk-cta">See the piece →</span>
     </a>
     <a class="look" href="producto.html?p=ingot&v=ink2">
-      <img src="plinth-look-3.png?v=look1" alt="INGOT in a study" loading="lazy">
+      <img src="plinth-look-3.png?v=look2" alt="INGOT in a study" loading="lazy">
       <span class="lk-num">Look 03 — The study</span>
       <span class="lk-name">INGOT</span>
       <span class="lk-cta">See the piece →</span>
     </a>
     <a class="look" href="producto.html?p=arco&v=ink2">
-      <img src="plinth-look-4.png?v=look1" alt="ARCO in a gallery home" loading="lazy">
+      <img src="plinth-look-4.png?v=look2" alt="ARCO in a gallery home" loading="lazy">
       <span class="lk-num">Look 04 — The gallery house</span>
       <span class="lk-name">ARCO</span>
       <span class="lk-cta">See the piece →</span>
     </a>
+  </div>
+</section>
+
+<section class="feature" id="lived">
+  <div class="feature-img"><img src="plinth-look-1.png?v=look2" alt="A PLINTH at home" loading="lazy"></div>
+  <div class="feature-copy">
+    <p class="hk">Lived with</p>
+    <h2 class="serif">The one object in the room you'll never move.</h2>
+    <p>A PLINTH isn't wheeled out for the party and hidden away after. It stays — the centrepiece you play at midnight and admire at noon. Sound you can live inside, cast to outlast the room around it.</p>
+    <a class="btn" href="#commission">Commission yours →</a>
   </div>
 </section>
 
