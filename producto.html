@@ -128,11 +128,6 @@ main{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,48px) 120px}
       bp:'plinth-bp-mirage.svg', hero:'plinth-cu-mirage-8.png',
       shots:[['plinth-cu-mirage-9.png','Detail — PLINTH, debossed in the leather'],['plinth-cu-mirage-5.png','Detail — a tower, faceless and calm'],['plinth-foto-mirage.png','In session — your rider in place'],['plinth-cu-mirage-7.png','The set from behind — no cables']],
       ficha:[['Format','All-in-one · flagship'],['Shell','Stainless steel'],['Drivers','Glossy white, fine orange ring'],['Deck','Burnt-orange leather tray · removable 4-channel unit'],['Speakers','2 raised pods + 2 base drivers'],['Weight','~280 kg']] },
-    nova: { num:'PLINTH 02', nombre:'NOVA', precio:'$310,000', edicion:'EDITION OF 4', tipo:'ALL-IN-ONE',
-      sub:'A complete vinyl station in stainless steel — a sculptural console of twin turntables and a crossfader mixer, flanked by two tall speaker towers of glossy-white drivers ringed in fine orange. The whole sound system, cast as one.',
-      bp:'plinth-bp-nova.svg', hero:'plinth-foto-nova.png',
-      shots:[['plinth-foto-nova-v1.png','Detail — a turntable on the console'],['plinth-foto-nova-v2.png','A speaker tower']],
-      ficha:[['Format','All-in-one · vinyl station'],['Shell','Stainless steel'],['Console','2 turntables + mixer'],['Speakers','Two steel towers · multi-driver'],['Drivers','Glossy white, fine orange ring'],['Weight','~340 kg']] },
     arco: { num:'PLINTH 06', nombre:'ARCO', precio:'$220,000', edicion:'EDITION OF 6', tipo:'BOOTH',
       sub:'A single sweep of stainless steel, arched like a bridge, an orange-leather bay recessed flush into its crown for the gear. Molten metal frozen mid-pour.',
       bp:'plinth-bp-arco.svg', hero:'plinth-foto-arco-logo.png',
@@ -143,11 +138,6 @@ main{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,48px) 120px}
       bp:'plinth-bp-geode.svg', hero:'plinth-foto-geode.png',
       shots:[['plinth-cu-geode-1.png','Detail — one face, one driver'],['plinth-cu-geode-3.png','Detail — the tripod joint'],['plinth-cu-geode-7.png','GEODE, whole'],['plinth-cu-geode-8.png','Delivered — the crate, opened at home']],
       ficha:[['Format','Speaker — omnidirectional'],['Body','Stainless faceted steel'],['Drivers','12 faces · glossy-white cones, fine orange ring'],['Stand','Machined steel tripod'],['Weight','~48 kg'],['Lead time','12–16 weeks']] },
-    cornu: { num:'PLINTH 09', nombre:'CORNU', precio:'$165,000', edicion:'EDITION OF 6', tipo:'SPEAKER',
-      sub:'A matched pair of horns in solid stainless steel, each bell lined in glossy white inside — the mouth opening into the room. Sold only as a pair.',
-      bp:'plinth-bp-cornu.svg', hero:'plinth-foto-cornu-v2.png',
-      shots:[['plinth-foto-cornu-v1.png','Detail — the glossy white bell']],
-      ficha:[['Format','Speaker — matched pair'],['Body','Solid stainless steel'],['Finish','Brushed steel outside, glossy white bell'],['Horn','Hand-flared steel bell'],['Weight','~65 kg / pair'],['Lead time','14–18 weeks']] },
     ingot: { num:'PLINTH 10', nombre:'INGOT', precio:'$120,000', edicion:'EDITION OF 6', tipo:'SPEAKER',
       sub:'A stainless-steel block with a full-range driver on its face and twin glossy white ceramic horns rising from the top. Raw industry, tuned like a watch.',
       bp:'plinth-bp-ingot.svg', hero:'plinth-foto-ingot.png',
@@ -188,7 +178,7 @@ main{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,48px) 120px}
   addEventListener('DOMContentLoaded', () => {
     const t = [...document.querySelectorAll('.sec, .shot, .bp')];
     t.forEach(el => el.classList.add('reveal'));
-    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold:.1, rootMargin:'0px 0px -6% 0px' });
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold:.1, rootMargin:'10000px 0px -6% 0px' });
     t.forEach(el => io.observe(el));
   });
 </script>
