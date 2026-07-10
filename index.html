@@ -130,6 +130,12 @@ a{color:inherit;text-decoration:none}
 .waveband span{position:absolute;top:15px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;z-index:2}
 .waveband .wb-l{left:clamp(20px,4vw,48px);color:var(--mut)}
 .waveband .wb-r{right:clamp(20px,4vw,48px);color:var(--amber)}
+.wb-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:3;width:58px;height:58px;border-radius:50%;border:1px solid var(--ink);background:rgba(234,230,223,.92);display:grid;place-items:center;cursor:pointer;padding:0;transition:background .3s,border-color .3s}
+.wb-play svg{width:20px;height:20px;display:block}
+.wb-play svg path{fill:var(--ink);transition:fill .3s}
+.wb-play:hover{background:var(--ink)}
+.wb-play:hover svg path{fill:var(--bone)}
+.wb-play.on{border-color:var(--amber)}
 @media(prefers-reduced-motion:reduce){.btrack{animation:none}}
 @media(max-width:640px){.blabel{writing-mode:horizontal-tb;font-size:10px;padding:0 14px}.bi{font-size:22px}}
 /* lookbook — objects at home (infinite scroll strip) */
@@ -276,9 +282,10 @@ body.pilock{overflow:hidden}
   </div>
 </section>
 
-<div class="waveband">
+<div class="waveband" id="freqband">
   <span class="wb-l">Every room is a frequency</span>
   <span class="wb-r">20 Hz – 20 kHz</span>
+  <button class="wb-play" id="wbPlay" aria-label="Play the ambient set" type="button"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
   <svg class="wbsvg" viewBox="0 0 1200 180" preserveAspectRatio="none" aria-hidden="true"></svg>
 </div>
 
@@ -293,7 +300,7 @@ body.pilock{overflow:hidden}
     <p>Booth, speakers and decks fused into a single cast sculpture. Nothing to assemble — you plug in and play.</p>
   </div>
   <div class="feature">
-    <div class="feature-img"><img src="plinth-foto-mirage.png?v=look13" alt="MIRAGE — all-in-one DJ sculpture" loading="lazy"><img class="bp-cover" src="plinth-bp-mirage.svg?v=ink2" alt="" aria-hidden="true"></div>
+    <div class="feature-img"><img src="plinth-foto-mirage.png?v=look14" alt="MIRAGE — all-in-one DJ sculpture" loading="lazy"><img class="bp-cover" src="plinth-bp-mirage.svg?v=ink2" alt="" aria-hidden="true"></div>
     <div class="feature-copy">
       <p class="hk">MIRAGE — All-in-one</p>
       <h2 class="serif">The whole night, cast as one object.</h2>
@@ -311,7 +318,7 @@ body.pilock{overflow:hidden}
     <p>Sculptural DJ booths built around your rider. Pair them with any speakers, or with ours.</p>
   </div>
   <div class="feature rev">
-    <div class="feature-img"><img src="plinth-foto-arco.png?v=look13" alt="ARCO — sculptural DJ booth" loading="lazy"><img class="bp-cover" src="plinth-bp-arco.svg?v=ink2" alt="" aria-hidden="true"></div>
+    <div class="feature-img"><img src="plinth-foto-arco.png?v=look14" alt="ARCO — sculptural DJ booth" loading="lazy"><img class="bp-cover" src="plinth-bp-arco.svg?v=ink2" alt="" aria-hidden="true"></div>
     <div class="feature-copy">
       <p class="hk">ARCO — Booth</p>
       <h2 class="serif">One continuous arch of brushed steel.</h2>
@@ -330,8 +337,8 @@ body.pilock{overflow:hidden}
     <p>Loudspeakers as monuments — sold on their own, or paired with a booth to build your set.</p>
   </div>
   <div class="grid">
-    <a class="card" href="producto.html?p=geode&v=ink2"><span class="num">GEODE — SPEAKER</span><div class="ph"><img src="plinth-foto-geode.png?v=look13" alt="GEODE"><img class="bp-cover" src="plinth-bp-geode.svg?v=ink2" alt="" aria-hidden="true"></div><h3>GEODE</h3><p class="card-line">A faceted monolith that holds the room even in silence.</p><div class="row"><span>Edition of 8 · No. 4 unclaimed</span><b>$140,000</b></div></a>
-    <a class="card" href="producto.html?p=ingot&v=ink2"><span class="num">INGOT — SPEAKER</span><div class="ph"><img src="plinth-foto-ingot.png?v=look13" alt="INGOT"><img class="bp-cover" src="plinth-bp-ingot.svg?v=ink2" alt="" aria-hidden="true"></div><h3>INGOT</h3><p class="card-line">The entry into the edition — one cast block, tuned by hand.</p><div class="row"><span>Edition of 6 · No. 3 unclaimed</span><b>$120,000</b></div></a>
+    <a class="card" href="producto.html?p=geode&v=ink2"><span class="num">GEODE — SPEAKER</span><div class="ph"><img src="plinth-foto-geode.png?v=look14" alt="GEODE"><img class="bp-cover" src="plinth-bp-geode.svg?v=ink2" alt="" aria-hidden="true"></div><h3>GEODE</h3><p class="card-line">A faceted monolith that holds the room even in silence.</p><div class="row"><span>Edition of 8 · No. 4 unclaimed</span><b>$140,000</b></div></a>
+    <a class="card" href="producto.html?p=ingot&v=ink2"><span class="num">INGOT — SPEAKER</span><div class="ph"><img src="plinth-foto-ingot.png?v=look14" alt="INGOT"><img class="bp-cover" src="plinth-bp-ingot.svg?v=ink2" alt="" aria-hidden="true"></div><h3>INGOT</h3><p class="card-line">The entry into the edition — one cast block, tuned by hand.</p><div class="row"><span>Edition of 6 · No. 3 unclaimed</span><b>$120,000</b></div></a>
   </div>
 </section>
 
@@ -342,50 +349,44 @@ body.pilock{overflow:hidden}
   </div>
   <div class="lookstrip"><div class="looktrack" id="looktrack">
     <a class="look" href="producto.html?p=mirage&v=ink2">
-      <img src="plinth-look-1.png?v=look13" alt="MIRAGE on a rooftop terrace with friends">
+      <img src="plinth-look-1.png?v=look14" alt="MIRAGE on a rooftop terrace at dusk">
       <span class="lk-num">Look 01 — The terrace</span>
       <span class="lk-name">MIRAGE</span>
       <span class="lk-cta">See the piece →</span>
     </a>
     <a class="look" href="producto.html?p=ingot&v=ink2">
-      <img src="plinth-look-3.png?v=look13" alt="INGOT at the garden window">
+      <img src="plinth-look-3.png?v=look14" alt="INGOT at the garden window">
       <span class="lk-num">Look 02 — The garden window</span>
       <span class="lk-name">INGOT</span>
       <span class="lk-cta">See the piece →</span>
     </a>
     <a class="look" href="producto.html?p=arco&v=ink2">
-      <img src="plinth-look-4.png?v=look13" alt="ARCO facing the lake">
+      <img src="plinth-look-4.png?v=look14" alt="ARCO facing the lake">
       <span class="lk-num">Look 03 — The lake house</span>
       <span class="lk-name">ARCO</span>
       <span class="lk-cta">See the piece →</span>
     </a>
     <a class="look" href="producto.html?p=geode&v=ink2">
-      <img src="plinth-look-5.png?v=look13" alt="GEODE in a desert house">
+      <img src="plinth-look-5.png?v=look14" alt="GEODE in a desert house">
       <span class="lk-num">Look 04 — The desert house</span>
       <span class="lk-name">GEODE</span>
       <span class="lk-cta">See the piece →</span>
     </a>
     <a class="look" href="producto.html?p=arco&v=ink2">
-      <img src="plinth-look-7.png?v=look13" alt="ARCO in an interior courtyard">
+      <img src="plinth-look-7.png?v=look14" alt="ARCO in an interior courtyard">
       <span class="lk-num">Look 05 — The courtyard</span>
       <span class="lk-name">ARCO</span>
       <span class="lk-cta">See the piece →</span>
     </a>
     <a class="look" href="producto.html?p=ingot&v=ink2">
-      <img src="plinth-look-8.png?v=look13" alt="INGOT beside a dinner with friends">
+      <img src="plinth-look-8.png?v=look14" alt="INGOT beside a dinner with friends">
       <span class="lk-num">Look 06 — The long dinner</span>
       <span class="lk-name">INGOT</span>
       <span class="lk-cta">See the piece →</span>
     </a>
     <a class="look" href="producto.html?p=mirage&v=ink2">
-      <img src="plinth-look-9.png?v=look13" alt="MIRAGE facing the sea in a beach house">
+      <img src="plinth-look-9.png?v=look14" alt="MIRAGE facing the sea in a beach house">
       <span class="lk-num">Look 07 — The beach house</span>
-      <span class="lk-name">MIRAGE</span>
-      <span class="lk-cta">See the piece →</span>
-    </a>
-    <a class="look" href="producto.html?p=mirage&v=ink2">
-      <img src="plinth-look-11.png?v=look13" alt="MIRAGE in a mountain chalet by the fire">
-      <span class="lk-num">Look 08 — The chalet</span>
       <span class="lk-name">MIRAGE</span>
       <span class="lk-cta">See the piece →</span>
     </a>
@@ -395,9 +396,7 @@ body.pilock{overflow:hidden}
 
 <section class="feature" id="lived">
   <div class="feature-img">
-    <img src="plinth-look-7.png?v=look13" alt="ARCO in an interior courtyard" loading="lazy">
-    <img class="fade2" src="plinth-look-9.png?v=look13" alt="MIRAGE facing the sea in a beach house" loading="lazy">
-    <img class="fade3" src="plinth-look-1.png?v=look13" alt="MIRAGE on a rooftop terrace with friends" loading="lazy">
+    <img src="plinth-look-7.png?v=look14" alt="ARCO in an interior courtyard" loading="lazy">
   </div>
   <div class="feature-copy">
     <p class="hk">Lived with</p>
@@ -531,15 +530,14 @@ window.PLINTH = { wa:'', email:'andremacouzetruiz@gmail.com', ig:'' };
     });
   });
 })();
-/* ---- waveband: generate audio-wave dividers ---- */
+/* ---- waveband: generate audio-wave dividers (bars in twin groups so they can scroll) ---- */
 (function(){
   var svgs = document.querySelectorAll('.wbsvg');
   svgs.forEach(function(svg, si){
     var W=1200, H=180, mid=H*0.52, n=76, gap=W/n, bw=gap*0.4;
     var seed = si*131 + 17;
     function rnd(){ seed=(seed*9301+49297)%233280; return seed/233280; }
-    var parts=[];
-    parts.push('<line x1="0" y1="'+mid+'" x2="'+W+'" y2="'+mid+'" stroke="#141210" stroke-width="1" opacity="0.12"/>');
+    var bars=[];
     for(var i=0;i<n;i++){
       var x = i*gap + (gap-bw)/2;
       var env = 0.30 + 0.70*Math.pow(Math.sin(Math.PI*i/(n-1)), 0.65);   // taller in the middle
@@ -547,13 +545,116 @@ window.PLINTH = { wa:'', email:'andremacouzetruiz@gmail.com', ig:'' };
       var amber = (i % 15 === 6);
       var col = amber ? '#C96F2B' : '#141210';
       var op = amber ? 0.9 : (0.42 + 0.5*env);
-      parts.push('<rect x="'+x.toFixed(1)+'" y="'+(mid-h).toFixed(1)+'" width="'+bw.toFixed(1)+'" height="'+(2*h).toFixed(1)+'" fill="'+col+'" opacity="'+op.toFixed(2)+'"/>');
+      bars.push('<rect x="'+x.toFixed(1)+'" y="'+(mid-h).toFixed(1)+'" width="'+bw.toFixed(1)+'" height="'+(2*h).toFixed(1)+'" fill="'+col+'" opacity="'+op.toFixed(2)+'"/>');
     }
-    // faint frequency arc + a small play mark (music glyph)
-    parts.push('<path d="M120 26 Q600 -14 1080 26" fill="none" stroke="#C96F2B" stroke-width="1.4" opacity="0.28"/>');
-    parts.push('<path d="M28 '+(mid-9)+' L28 '+(mid+9)+' L44 '+mid+' Z" fill="#141210" opacity="0.7"/>');
-    svg.innerHTML = parts.join('');
+    var b=bars.join('');
+    svg.innerHTML =
+      '<line x1="0" y1="'+mid+'" x2="'+W+'" y2="'+mid+'" stroke="#141210" stroke-width="1" opacity="0.12"/>'+
+      '<g class="wbtA">'+b+'</g><g class="wbtB" transform="translate(1200 0)">'+b+'</g>'+
+      '<path d="M120 26 Q600 -14 1080 26" fill="none" stroke="#C96F2B" stroke-width="1.4" opacity="0.28"/>'+
+      '<path d="M28 '+(mid-9)+' L28 '+(mid+9)+' L44 '+mid+' Z" fill="#141210" opacity="0.7"/>';
   });
+})();
+/* ---- "Every room is a frequency": play -> bars scroll forever + minimal ambient techno (WebAudio, no files) ---- */
+(function(){
+  var btn=document.getElementById('wbPlay'); if(!btn) return;
+  var svg=document.querySelector('#freqband .wbsvg');
+  var ICON_PLAY='<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
+  var ICON_PAUSE='<svg viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>';
+  var playing=false, raf=null, off=0, last=0;
+  function tick(ts){
+    if(!last) last=ts;
+    off=(off+(ts-last)*0.045)%1200; last=ts;
+    var gA=svg.querySelector('.wbtA'), gB=svg.querySelector('.wbtB');
+    if(gA){ gA.setAttribute('transform','translate('+(-off)+' 0)'); gB.setAttribute('transform','translate('+(1200-off)+' 0)'); }
+    raf=requestAnimationFrame(tick);
+  }
+  /* audio engine — dub-flavoured minimal: soft kick, offbeat hats, deep bass, echoed stab, slow pad */
+  var AC=null, master, dly, nb, padGain, timer=null, step=0, nextT=0;
+  var BPM=118, S16=(60/BPM)/4;
+  function build(){
+    AC=new (window.AudioContext||window.webkitAudioContext)();
+    master=AC.createGain(); master.gain.value=0;
+    var comp=AC.createDynamicsCompressor(); comp.threshold.value=-18; comp.ratio.value=3;
+    master.connect(comp); comp.connect(AC.destination);
+    dly=AC.createDelay(1.2); dly.delayTime.value=(60/BPM)*0.75;
+    var fb=AC.createGain(); fb.gain.value=0.42;
+    var df=AC.createBiquadFilter(); df.type='lowpass'; df.frequency.value=1800;
+    dly.connect(fb); fb.connect(df); df.connect(dly); dly.connect(master);
+    nb=AC.createBuffer(1,AC.sampleRate/2,AC.sampleRate);
+    var d=nb.getChannelData(0); for(var i=0;i<d.length;i++) d[i]=Math.random()*2-1;
+    // slow warm pad — A minor drone breathing under everything
+    padGain=AC.createGain(); padGain.gain.value=0;
+    var pf=AC.createBiquadFilter(); pf.type='lowpass'; pf.frequency.value=420; pf.Q.value=0.7;
+    var lfo=AC.createOscillator(), lg=AC.createGain(); lfo.frequency.value=0.05; lg.gain.value=180;
+    lfo.connect(lg); lg.connect(pf.frequency); lfo.start();
+    [110,164.81,220,329.63].forEach(function(f,i){
+      var o=AC.createOscillator(); o.type='sawtooth'; o.frequency.value=f; o.detune.value=i%2?6:-6;
+      var g=AC.createGain(); g.gain.value=0.25; o.connect(g); g.connect(pf); o.start();
+    });
+    pf.connect(padGain); padGain.connect(master);
+  }
+  function kick(t){
+    var o=AC.createOscillator(), g=AC.createGain(); o.type='sine';
+    o.frequency.setValueAtTime(140,t); o.frequency.exponentialRampToValueAtTime(46,t+0.11);
+    g.gain.setValueAtTime(0.5,t); g.gain.exponentialRampToValueAtTime(0.001,t+0.3);
+    o.connect(g); g.connect(master); o.start(t); o.stop(t+0.32);
+  }
+  function hat(t,open){
+    var s=AC.createBufferSource(); s.buffer=nb;
+    var f=AC.createBiquadFilter(); f.type='highpass'; f.frequency.value=8200;
+    var g=AC.createGain(), d=open?0.14:0.05;
+    g.gain.setValueAtTime(open?0.09:0.06,t); g.gain.exponentialRampToValueAtTime(0.001,t+d);
+    s.connect(f); f.connect(g); g.connect(master); s.start(t); s.stop(t+d+0.02);
+  }
+  function bass(t,f){
+    var o=AC.createOscillator(), g=AC.createGain(); o.type='triangle'; o.frequency.value=f;
+    var lp=AC.createBiquadFilter(); lp.type='lowpass'; lp.frequency.value=240;
+    g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(0.32,t+0.02); g.gain.exponentialRampToValueAtTime(0.001,t+0.34);
+    o.connect(lp); lp.connect(g); g.connect(master); o.start(t); o.stop(t+0.4);
+  }
+  function stab(t){
+    var g=AC.createGain(); g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(0.15,t+0.01); g.gain.exponentialRampToValueAtTime(0.001,t+0.22);
+    var bp=AC.createBiquadFilter(); bp.type='bandpass'; bp.frequency.value=920; bp.Q.value=1.1;
+    [220,261.63,329.63,392].forEach(function(f,i){
+      var o=AC.createOscillator(); o.type='sawtooth'; o.frequency.value=f; o.detune.value=i%2?5:-5;
+      o.connect(bp); o.start(t); o.stop(t+0.26);
+    });
+    bp.connect(g);
+    var send=AC.createGain(); send.gain.value=0.55; g.connect(send); send.connect(dly);
+    g.connect(master);
+  }
+  var BASSPAT=[[0,55],[6,55],[10,41.2],[14,49]];
+  function schedule(){
+    while(nextT < AC.currentTime+0.14){
+      var sb=step%16, bar=Math.floor(step/16);
+      if(sb%4===0) kick(nextT);
+      if(sb%8===4) hat(nextT,true); else if(sb%2===1) hat(nextT,false);
+      for(var i=0;i<BASSPAT.length;i++){ if(BASSPAT[i][0]===sb) bass(nextT,BASSPAT[i][1]); }
+      if(bar%2===1 && sb===6) stab(nextT);
+      if(bar%4===2 && sb===14) stab(nextT);
+      step++; nextT+=S16;
+    }
+  }
+  function start(){
+    if(!AC) build();
+    AC.resume().then(function(){
+      nextT=AC.currentTime+0.1;
+      if(timer===null) timer=setInterval(schedule,25);
+      master.gain.cancelScheduledValues(AC.currentTime);
+      master.gain.setTargetAtTime(0.6,AC.currentTime,0.4);
+      padGain.gain.setTargetAtTime(0.05,AC.currentTime,1.2);
+    });
+    playing=true; btn.classList.add('on'); btn.innerHTML=ICON_PAUSE; btn.setAttribute('aria-label','Pause');
+    last=0; raf=requestAnimationFrame(tick);
+  }
+  function stop(){
+    playing=false; btn.classList.remove('on'); btn.innerHTML=ICON_PLAY; btn.setAttribute('aria-label','Play the ambient set');
+    if(raf){ cancelAnimationFrame(raf); raf=null; }
+    if(AC){ master.gain.setTargetAtTime(0.0001,AC.currentTime,0.22);
+      setTimeout(function(){ if(!playing && AC) AC.suspend(); },700); }
+  }
+  btn.addEventListener('click', function(){ playing?stop():start(); });
 })();
 function plinthInquire(e){
   e.preventDefault();
