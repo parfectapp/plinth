@@ -74,6 +74,25 @@ main{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,48px) 120px}
 .nav a{color:var(--mut);padding-bottom:4px}
 .nav a:hover,.nav a.activo{color:var(--ink);border-bottom:1px solid var(--amber)}
 
+/* partner brands — sound & signal (per-product) */
+.collab{padding:clamp(56px,8vw,96px) 0 0;border-top:1px solid rgba(20,18,16,.14);margin-top:clamp(48px,8vw,110px)}
+.collab-head{margin:0 auto clamp(30px,5vw,48px);text-align:center}
+.collab-head h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(30px,4.5vw,52px);margin:10px 0 14px;line-height:1.03;text-align:center}
+.collab-sub{max-width:54ch;margin:0 auto;color:var(--mut);line-height:1.55}
+.brow{display:flex;align-items:stretch;overflow:hidden;border-top:1px solid rgba(20,18,16,.12);border-bottom:1px solid rgba(20,18,16,.12)}
+.brow + .brow{border-top:none}
+.blabel{flex:none;display:flex;align-items:center;gap:8px;padding:0 clamp(16px,3vw,30px);background:var(--bone2);border-right:1px solid rgba(20,18,16,.12);font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);white-space:nowrap}
+.blabel b{color:var(--amber);font-weight:400}
+.bwrap{flex:1;overflow:hidden;white-space:nowrap}
+.btrack{display:inline-block;animation:bscroll 44s linear infinite}
+.brow.rev .btrack{animation-duration:56s;animation-direction:reverse}
+.bwrap:hover .btrack{animation-play-state:paused}
+.bi{display:inline-flex;align-items:center;padding:20px 0;font-family:'Instrument Serif',serif;font-size:clamp(23px,3.2vw,40px);color:var(--ink);letter-spacing:.005em}
+.bi::after{content:"";width:5px;height:5px;border-radius:50%;background:var(--amber);opacity:.65;margin:0 clamp(24px,3vw,42px)}
+@keyframes bscroll{to{transform:translateX(-50%)}}
+@media(max-width:640px){.brow{flex-direction:column}.blabel{border-right:none;border-bottom:1px solid rgba(20,18,16,.12);padding-top:10px;padding-bottom:10px}.bi{padding:14px 0}}
+@media(prefers-reduced-motion:reduce){.btrack{animation:none}}
+
 .reveal{opacity:0;transform:translateY(38px) scale(.98);filter:blur(9px);transition:opacity 1.05s cubic-bezier(.2,.75,.2,1),transform 1.05s cubic-bezier(.2,.75,.2,1),filter 1.05s ease}
 .reveal.in{opacity:1;transform:none;filter:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;filter:none;transition:none}}
@@ -105,6 +124,28 @@ main{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,48px) 120px}
     <p class="hk">Spec</p>
     <h2 class="serif">Made to order</h2>
     <ul id="pv-ficha"></ul>
+  </section>
+
+  <section class="collab" id="pv-partners" style="display:none">
+    <div class="collab-head">
+      <p class="hk">In collaboration with</p>
+      <h2 class="serif">The best of sound &amp; signal</h2>
+      <p class="collab-sub">Every PLINTH is built around reference speakers and club-grade decks — integrated, tuned by hand, and cast into the object.</p>
+    </div>
+    <div class="brands">
+      <div class="brow">
+        <span class="blabel"><b>▸</b> Speakers</span>
+        <div class="bwrap"><div class="btrack">
+          <span class="bi">Funktion-One</span><span class="bi">Void Acoustics</span><span class="bi">Bowers &amp; Wilkins</span><span class="bi">Focal</span><span class="bi">L-Acoustics</span><span class="bi">Devialet</span><span class="bi">KEF</span><span class="bi">Genelec</span><span class="bi">Dynaudio</span><span class="bi">Funktion-One</span><span class="bi">Void Acoustics</span><span class="bi">Bowers &amp; Wilkins</span><span class="bi">Focal</span><span class="bi">L-Acoustics</span><span class="bi">Devialet</span><span class="bi">KEF</span><span class="bi">Genelec</span><span class="bi">Dynaudio</span>
+        </div></div>
+      </div>
+      <div class="brow rev">
+        <span class="blabel"><b>▸</b> Decks &amp; Mixers</span>
+        <div class="bwrap"><div class="btrack">
+          <span class="bi">Pioneer DJ</span><span class="bi">Allen &amp; Heath</span><span class="bi">Rane</span><span class="bi">Technics</span><span class="bi">Denon DJ</span><span class="bi">Pioneer DJ</span><span class="bi">Allen &amp; Heath</span><span class="bi">Rane</span><span class="bi">Technics</span><span class="bi">Denon DJ</span><span class="bi">Pioneer DJ</span><span class="bi">Allen &amp; Heath</span><span class="bi">Rane</span><span class="bi">Technics</span><span class="bi">Denon DJ</span><span class="bi">Pioneer DJ</span><span class="bi">Allen &amp; Heath</span><span class="bi">Rane</span><span class="bi">Technics</span><span class="bi">Denon DJ</span>
+        </div></div>
+      </div>
+    </div>
   </section>
 
   <section class="sec bp-sec">
@@ -172,6 +213,9 @@ main{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,48px) 120px}
   });
 
   document.getElementById('pv-ficha').innerHTML = o.ficha.map(f => '<li><span>' + f[0] + '</span><span>' + f[1] + '</span></li>').join('');
+
+  // Sound & signal partners — only on pieces with integrated speakers (not the ARCO booth)
+  if (['mirage','geode','ingot'].includes(clave)) document.getElementById('pv-partners').style.display = '';
   document.getElementById('pv-nav').innerHTML = Object.keys(OBJETOS).map(k =>
     '<a href="producto.html?p=' + k + V.replace('?','&') + '"' + (k === clave ? ' class="activo"' : '') + '>' + OBJETOS[k].nombre + '</a>').join('');
 
