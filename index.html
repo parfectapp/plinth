@@ -71,6 +71,26 @@ a{color:inherit;text-decoration:none}
 .card::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--amber);transition:width .5s}
 .card:hover::after{width:100%}
 
+/* product feature bands (single-piece categories, no grid holes) */
+.feature.rev .feature-img{order:2}
+.feature.rev .feature-copy{border-left:none;border-right:1px solid rgba(20,18,16,.14)}
+@media(max-width:820px){.feature.rev .feature-img{order:0}.feature.rev .feature-copy{border-right:none}}
+.spec-row{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);border-top:1px solid rgba(20,18,16,.14);padding-top:16px;margin:6px 0 0}
+.claim-line{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);margin:0}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px}
+.xsell{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;transition:color .3s}
+.xsell:hover{color:var(--amber)}
+.card-line{color:var(--mut);font-size:14px;line-height:1.55;margin:0 0 16px;max-width:38ch}
+#speakers .grid{grid-template-columns:repeat(2,1fr)}
+@media(max-width:640px){#speakers .grid{grid-template-columns:1fr}}
+#speakers .card .ph img{object-fit:cover;padding:0}
+.btn.sm{padding:8px 14px;font-size:11px}
+
+/* scarcity band */
+.scarcity{background:var(--bone2);border-top:1px solid rgba(20,18,16,.14);border-bottom:1px solid rgba(20,18,16,.14);text-align:center;padding:clamp(64px,9vw,110px) clamp(20px,4vw,48px)}
+.scarcity h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(34px,6vw,72px);margin:0 0 18px;line-height:1.05}
+.scarcity p{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut);margin:0}
+
 /* editorial */
 .edit{background:var(--bone2)}
 .edit .row2{max-width:1300px;margin:0 auto;padding:clamp(60px,9vw,120px) clamp(20px,4vw,48px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,80px);align-items:center}
@@ -125,9 +145,11 @@ a{color:inherit;text-decoration:none}
 .feature{display:grid;grid-template-columns:1.08fr 1fr;align-items:stretch;max-width:1300px;margin:0 auto;border-top:1px solid rgba(20,18,16,.14)}
 .feature-img{overflow:hidden;position:relative}
 .feature-img img{width:100%;height:100%;object-fit:cover;display:block;min-height:clamp(340px,44vw,600px);filter:saturate(.96)}
-.feature-img .fade2{position:absolute;inset:0;opacity:0;animation:livedfade 14s ease-in-out infinite}
-@keyframes livedfade{0%,42%{opacity:0}50%,92%{opacity:1}100%{opacity:0}}
-@media(prefers-reduced-motion:reduce){.feature-img .fade2{animation:none;opacity:0}}
+.feature-img .fade2{position:absolute;inset:0;opacity:0;animation:livedfadeB 21s ease-in-out infinite}
+.feature-img .fade3{position:absolute;inset:0;opacity:0;animation:livedfadeC 21s ease-in-out infinite}
+@keyframes livedfadeB{0%,31%{opacity:0}38%,64%{opacity:1}71%,100%{opacity:0}}
+@keyframes livedfadeC{0%,64%{opacity:0}71%,95%{opacity:1}100%{opacity:0}}
+@media(prefers-reduced-motion:reduce){.feature-img .fade2,.feature-img .fade3{animation:none;opacity:0}}
 .feature-copy{padding:clamp(44px,6vw,92px) clamp(24px,4vw,64px);display:flex;flex-direction:column;justify-content:center;gap:18px;border-left:1px solid rgba(20,18,16,.14)}
 .feature-copy h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(34px,4.6vw,62px);line-height:1.03;margin:0}
 .feature-copy p{color:var(--mut);line-height:1.6;margin:0;max-width:44ch}
@@ -233,7 +255,7 @@ body.pilock{overflow:hidden}
 
 <header class="top"><div class="in">
   <a class="wm" href="plinth.html">PLINTH</a>
-  <nav><a href="#allinone">All-in-one</a><a href="#booths">Booths</a><a href="#speakers">Speakers</a><a href="#lookbook">Lookbook</a><a href="#commission">Commission</a></nav>
+  <nav><a href="#allinone">Mirage</a><a href="#booths">Arco</a><a href="#speakers">Speakers</a><a href="#lookbook">Lookbook</a><a class="btn sm" href="#commission">Commission</a></nav>
 </div></header>
 
 <section class="hero">
@@ -241,7 +263,7 @@ body.pilock{overflow:hidden}
   <h1 class="hero-word">PLINTH</h1>
   <div class="hero-bottom">
     <p class="hero-claim">Booth, speakers and decks — cast as one sculpture. The whole set becomes a single object, numbered by hand, in editions of a few. When an edition closes, the mold is destroyed.</p>
-    <a class="btn solid" href="#allinone">View the collection →</a>
+    <div class="cta-row"><a class="btn solid" href="#allinone">View the collection →</a><a class="btn" href="#commission">Begin a commission →</a></div>
   </div>
 </section>
 
@@ -261,8 +283,16 @@ body.pilock{overflow:hidden}
     <div><p class="hk">Type 01 — All-in-one</p><h2>The monoliths</h2></div>
     <p>Booth, speakers and decks fused into a single cast sculpture. Nothing to assemble — you plug in and play.</p>
   </div>
-  <div class="grid">
-    <a class="card" href="producto.html?p=mirage&v=ink2"><span class="num">MIRAGE — ALL-IN-ONE</span><div class="ph"><img src="plinth-bp-mirage.svg?v=ink2" alt="MIRAGE"></div><h3>MIRAGE</h3><div class="row"><span>Brushed steel · ed. 5</span><b>$290,000</b></div></a>
+  <div class="feature">
+    <div class="feature-img"><img src="plinth-foto-mirage.png?v=look13" alt="MIRAGE — all-in-one DJ sculpture" loading="lazy"></div>
+    <div class="feature-copy">
+      <p class="hk">MIRAGE — All-in-one</p>
+      <h2 class="serif">The whole night, cast as one object.</h2>
+      <p>Two sculpted towers, four cast woofers, a glossy deck bridging the base. Your 4-channel rider drops in and disappears. Nothing to assemble — you plug in and play.</p>
+      <p class="spec-row">Brushed steel · Edition of 5 · $290,000</p>
+      <p class="claim-line">No. 3 of 5 still unclaimed</p>
+      <div class="cta-row"><a class="btn" href="producto.html?p=mirage&v=ink2">See MIRAGE →</a><a class="btn solid" href="#commission" data-piece="MIRAGE">Commission MIRAGE →</a></div>
+    </div>
   </div>
 </section>
 
@@ -271,8 +301,17 @@ body.pilock{overflow:hidden}
     <div><p class="hk">Type 02 — Booths</p><h2>The tables</h2></div>
     <p>Sculptural DJ booths built around your rider. Pair them with any speakers, or with ours.</p>
   </div>
-  <div class="grid">
-    <a class="card" href="producto.html?p=arco&v=ink2"><span class="num">ARCO — BOOTH</span><div class="ph"><img src="plinth-bp-arco.svg?v=ink2" alt="ARCO"></div><h3>ARCO</h3><div class="row"><span>Brushed steel · ed. 6</span><b>$220,000</b></div></a>
+  <div class="feature rev">
+    <div class="feature-img"><img src="plinth-foto-arco.png?v=look13" alt="ARCO — sculptural DJ booth" loading="lazy"></div>
+    <div class="feature-copy">
+      <p class="hk">ARCO — Booth</p>
+      <h2 class="serif">One continuous arch of brushed steel.</h2>
+      <p>The controller sits flush in the tray; cables vanish through the leg. It stands where a grand piano would — and holds the room the same way.</p>
+      <p class="spec-row">Brushed steel · Edition of 6 · $220,000</p>
+      <p class="claim-line">No. 2 of 6 still unclaimed</p>
+      <div class="cta-row"><a class="btn" href="producto.html?p=arco&v=ink2">See ARCO →</a><a class="btn solid" href="#commission" data-piece="ARCO">Commission ARCO →</a></div>
+      <a class="xsell" href="#speakers">Pairs with a voice — GEODE or INGOT →</a>
+    </div>
   </div>
 </section>
 
@@ -282,9 +321,80 @@ body.pilock{overflow:hidden}
     <p>Loudspeakers as monuments — sold on their own, or paired with a booth to build your set.</p>
   </div>
   <div class="grid">
-    <a class="card" href="producto.html?p=geode&v=ink2"><span class="num">GEODE — SPEAKER</span><div class="ph"><img src="plinth-bp-geode.svg?v=ink2" alt="GEODE"></div><h3>GEODE</h3><div class="row"><span>Brushed steel · ed. 8</span><b>$140,000</b></div></a>
-    <a class="card" href="producto.html?p=cornu&v=ink2"><span class="num">CORNU — SPEAKER</span><div class="ph"><img src="plinth-bp-cornu.svg?v=ink2" alt="CORNU"></div><h3>CORNU</h3><div class="row"><span>Brushed steel · ed. 6</span><b>$165,000</b></div></a>
-    <a class="card" href="producto.html?p=ingot&v=ink2"><span class="num">INGOT — SPEAKER</span><div class="ph"><img src="plinth-bp-ingot.svg?v=ink2" alt="INGOT"></div><h3>INGOT</h3><div class="row"><span>Brushed steel · ed. 6</span><b>$120,000</b></div></a>
+    <a class="card" href="producto.html?p=geode&v=ink2"><span class="num">GEODE — SPEAKER</span><div class="ph"><img src="plinth-foto-geode.png?v=look13" alt="GEODE"></div><h3>GEODE</h3><p class="card-line">A faceted monolith that holds the room even in silence.</p><div class="row"><span>Edition of 8 · No. 4 unclaimed</span><b>$140,000</b></div></a>
+    <a class="card" href="producto.html?p=ingot&v=ink2"><span class="num">INGOT — SPEAKER</span><div class="ph"><img src="plinth-foto-ingot.png?v=look13" alt="INGOT"></div><h3>INGOT</h3><p class="card-line">The entry into the edition — one cast block, tuned by hand.</p><div class="row"><span>Edition of 6 · No. 3 unclaimed</span><b>$120,000</b></div></a>
+  </div>
+</section>
+
+<section class="lookbook" id="lookbook">
+  <div class="sh">
+    <div><p class="hk">At home</p><h2>Lookbook 001</h2></div>
+    <p>Not equipment — furniture. Each object lives in the room like a sculpture: the centrepiece you play, then pour a drink beside.</p>
+  </div>
+  <div class="lookstrip"><div class="looktrack" id="looktrack">
+    <a class="look" href="producto.html?p=mirage&v=ink2">
+      <img src="plinth-look-1.png?v=look13" alt="MIRAGE on a rooftop terrace with friends">
+      <span class="lk-num">Look 01 — The terrace</span>
+      <span class="lk-name">MIRAGE</span>
+      <span class="lk-cta">See the piece →</span>
+    </a>
+    <a class="look" href="producto.html?p=ingot&v=ink2">
+      <img src="plinth-look-3.png?v=look13" alt="INGOT at the garden window">
+      <span class="lk-num">Look 02 — The garden window</span>
+      <span class="lk-name">INGOT</span>
+      <span class="lk-cta">See the piece →</span>
+    </a>
+    <a class="look" href="producto.html?p=arco&v=ink2">
+      <img src="plinth-look-4.png?v=look13" alt="ARCO facing the lake">
+      <span class="lk-num">Look 03 — The lake house</span>
+      <span class="lk-name">ARCO</span>
+      <span class="lk-cta">See the piece →</span>
+    </a>
+    <a class="look" href="producto.html?p=geode&v=ink2">
+      <img src="plinth-look-5.png?v=look13" alt="GEODE in a desert house">
+      <span class="lk-num">Look 04 — The desert house</span>
+      <span class="lk-name">GEODE</span>
+      <span class="lk-cta">See the piece →</span>
+    </a>
+    <a class="look" href="producto.html?p=arco&v=ink2">
+      <img src="plinth-look-7.png?v=look13" alt="ARCO in an interior courtyard">
+      <span class="lk-num">Look 05 — The courtyard</span>
+      <span class="lk-name">ARCO</span>
+      <span class="lk-cta">See the piece →</span>
+    </a>
+    <a class="look" href="producto.html?p=ingot&v=ink2">
+      <img src="plinth-look-8.png?v=look13" alt="INGOT beside a dinner with friends">
+      <span class="lk-num">Look 06 — The long dinner</span>
+      <span class="lk-name">INGOT</span>
+      <span class="lk-cta">See the piece →</span>
+    </a>
+    <a class="look" href="producto.html?p=mirage&v=ink2">
+      <img src="plinth-look-9.png?v=look13" alt="MIRAGE facing the sea in a beach house">
+      <span class="lk-num">Look 07 — The beach house</span>
+      <span class="lk-name">MIRAGE</span>
+      <span class="lk-cta">See the piece →</span>
+    </a>
+    <a class="look" href="producto.html?p=mirage&v=ink2">
+      <img src="plinth-look-11.png?v=look13" alt="MIRAGE in a mountain chalet by the fire">
+      <span class="lk-num">Look 08 — The chalet</span>
+      <span class="lk-name">MIRAGE</span>
+      <span class="lk-cta">See the piece →</span>
+    </a>
+  </div></div>
+  <script>document.getElementById('looktrack').innerHTML += document.getElementById('looktrack').innerHTML;</script>
+</section>
+
+<section class="feature" id="lived">
+  <div class="feature-img">
+    <img src="plinth-look-7.png?v=look13" alt="ARCO in an interior courtyard" loading="lazy">
+    <img class="fade2" src="plinth-look-9.png?v=look13" alt="MIRAGE facing the sea in a beach house" loading="lazy">
+    <img class="fade3" src="plinth-look-1.png?v=look13" alt="MIRAGE on a rooftop terrace with friends" loading="lazy">
+  </div>
+  <div class="feature-copy">
+    <p class="hk">Lived with</p>
+    <h2 class="serif">The one object in the room you'll never move.</h2>
+    <p>A PLINTH isn't wheeled out for the party and hidden away after. It stays — the centrepiece you play at midnight and admire at noon. Sound you can live inside, cast to outlast the room around it.</p>
+    <a class="btn" href="#commission">Commission yours →</a>
   </div>
 </section>
 
@@ -296,71 +406,6 @@ body.pilock{overflow:hidden}
       <h2>Cast, not assembled</h2>
       <p>Every booth is cast as a single piece — smoked glass, quarried stone, hand-laid tile or stone-textured resin. No visible fasteners, no seams. Your rider bolts straight in, and the equipment disappears into the object. Each shell carries a signed plate and its number in the edition.</p>
     </div>
-  </div>
-</section>
-
-<section class="lookbook" id="lookbook">
-  <div class="sh">
-    <div><p class="hk">At home</p><h2>Lookbook 001</h2></div>
-    <p>Not equipment — furniture. Each object lives in the room like a sculpture: the centrepiece you play, then pour a drink beside.</p>
-  </div>
-  <div class="lookstrip"><div class="looktrack" id="looktrack">
-    <a class="look" href="producto.html?p=mirage&v=ink2">
-      <img src="plinth-look-1.png?v=look12" alt="MIRAGE on a rooftop terrace with friends">
-      <span class="lk-num">Look 01 — The terrace</span>
-      <span class="lk-name">MIRAGE</span>
-      <span class="lk-cta">See the piece →</span>
-    </a>
-    <a class="look" href="producto.html?p=ingot&v=ink2">
-      <img src="plinth-look-3.png?v=look12" alt="INGOT at the garden window">
-      <span class="lk-num">Look 02 — The garden window</span>
-      <span class="lk-name">INGOT</span>
-      <span class="lk-cta">See the piece →</span>
-    </a>
-    <a class="look" href="producto.html?p=arco&v=ink2">
-      <img src="plinth-look-4.png?v=look12" alt="ARCO facing the lake">
-      <span class="lk-num">Look 03 — The lake house</span>
-      <span class="lk-name">ARCO</span>
-      <span class="lk-cta">See the piece →</span>
-    </a>
-    <a class="look" href="producto.html?p=geode&v=ink2">
-      <img src="plinth-look-5.png?v=look12" alt="GEODE in a desert house">
-      <span class="lk-num">Look 04 — The desert house</span>
-      <span class="lk-name">GEODE</span>
-      <span class="lk-cta">See the piece →</span>
-    </a>
-    <a class="look" href="producto.html?p=arco&v=ink2">
-      <img src="plinth-look-7.png?v=look12" alt="ARCO in an interior courtyard">
-      <span class="lk-num">Look 05 — The courtyard</span>
-      <span class="lk-name">ARCO</span>
-      <span class="lk-cta">See the piece →</span>
-    </a>
-    <a class="look" href="producto.html?p=ingot&v=ink2">
-      <img src="plinth-look-8.png?v=look12" alt="INGOT beside a dinner with friends">
-      <span class="lk-num">Look 06 — The long dinner</span>
-      <span class="lk-name">INGOT</span>
-      <span class="lk-cta">See the piece →</span>
-    </a>
-    <a class="look" href="producto.html?p=mirage&v=ink2">
-      <img src="plinth-look-9.png?v=look12" alt="MIRAGE facing the sea in a beach house">
-      <span class="lk-num">Look 07 — The beach house</span>
-      <span class="lk-name">MIRAGE</span>
-      <span class="lk-cta">See the piece →</span>
-    </a>
-  </div></div>
-  <script>document.getElementById('looktrack').innerHTML += document.getElementById('looktrack').innerHTML;</script>
-</section>
-
-<section class="feature" id="lived">
-  <div class="feature-img">
-    <img src="plinth-look-7.png?v=look12" alt="ARCO in an interior courtyard" loading="lazy">
-    <img class="fade2" src="plinth-look-9.png?v=look12" alt="MIRAGE facing the sea in a beach house" loading="lazy">
-  </div>
-  <div class="feature-copy">
-    <p class="hk">Lived with</p>
-    <h2 class="serif">The one object in the room you'll never move.</h2>
-    <p>A PLINTH isn't wheeled out for the party and hidden away after. It stays — the centrepiece you play at midnight and admire at noon. Sound you can live inside, cast to outlast the room around it.</p>
-    <a class="btn" href="#commission">Commission yours →</a>
   </div>
 </section>
 
@@ -386,22 +431,21 @@ body.pilock{overflow:hidden}
   </div>
 </section>
 
-<div class="waveband">
-  <span class="wb-l">Made to be heard</span>
-  <span class="wb-r">Tuned by hand</span>
-  <svg class="wbsvg" viewBox="0 0 1200 180" preserveAspectRatio="none" aria-hidden="true"></svg>
-</div>
+<section class="scarcity">
+  <h2>Twenty-five objects will ever exist.</h2>
+  <p>Four designs · Editions of five to eight · Molds destroyed at close</p>
+</section>
 
 <section class="cta" id="commission">
   <div class="in">
     <p class="hk">Editions close without notice</p>
     <h2 class="serif">Claim your number.</h2>
     <div class="cta-rule"><span></span><p class="price">From $120,000 · deposit $20,000</p><span></span></div>
-    <p class="cta-fine">Numbered by hand · When an edition closes, the mold is destroyed</p>
+    <p class="cta-fine">Numbered by hand · When an edition closes, the mold is destroyed · Each piece ships with its signed plate and certificate of provenance</p>
 
     <div class="steps">
       <div class="step"><span class="sn">01</span><h4>Inquiry</h4><p>Tell us the piece and your space. We reply within 48 hours with availability and the remaining numbers in the edition.</p></div>
-      <div class="step"><span class="sn">02</span><h4>Deposit &amp; specs</h4><p>A $20,000 deposit reserves your number. We confirm finish, rider and dimensions, then open the mold.</p></div>
+      <div class="step"><span class="sn">02</span><h4>Deposit &amp; specs</h4><p>A $20,000 deposit — credited to the commission, refundable until the mold opens — reserves your number. We confirm finish, rider and dimensions, then begin the cast.</p></div>
       <div class="step"><span class="sn">03</span><h4>Cast &amp; delivered</h4><p>Hand-cast, tuned and signed — then white-glove shipping and installation worldwide, in 10–14 weeks.</p></div>
     </div>
 
@@ -417,7 +461,6 @@ body.pilock{overflow:hidden}
           <option>MIRAGE — All-in-one · $290,000</option>
           <option>ARCO — Booth · $220,000</option>
           <option>GEODE — Speaker · $140,000</option>
-          <option>CORNU — Speaker · $165,000</option>
           <option>INGOT — Speaker · $120,000</option>
         </select>
       </label>
@@ -471,6 +514,13 @@ window.PLINTH = { wa:'', email:'andremacouzetruiz@gmail.com', ig:'' };
     if(q){ var sel=document.querySelector('.inq select[name=piece]');
       if(sel){ for(var i=0;i<sel.options.length;i++){ if(sel.options[i].text.indexOf(q)===0){ sel.selectedIndex=i; break; } } } }
   } catch(e){}
+  // product-band CTAs prefill the form with their piece
+  document.querySelectorAll('[data-piece]').forEach(function(a){
+    a.addEventListener('click', function(){
+      var s=document.querySelector('.inq select[name=piece]'); if(!s) return;
+      for(var i=0;i<s.options.length;i++){ if(s.options[i].text.indexOf(a.dataset.piece)===0){ s.selectedIndex=i; break; } }
+    });
+  });
 })();
 /* ---- waveband: generate audio-wave dividers ---- */
 (function(){
@@ -507,12 +557,14 @@ function plinthInquire(e){
   } else {
     window.location.href = 'mailto:'+P.email+'?subject='+encodeURIComponent('PLINTH — Commission inquiry: '+f.piece.value)+'&body='+encodeURIComponent(body);
   }
+  var b=document.getElementById('inq-submit');
+  if(b){ b.textContent='Draft opened — send it. We reply within 48 hours.'; }
   return false;
 }
 </script>
 <script>
   addEventListener('DOMContentLoaded', () => {
-    const targets = [...document.querySelectorAll('.mq, .sh, .card, .edit .row2 > *, .cta .in')];
+    const targets = [...document.querySelectorAll('.mq, .sh, .card, .edit .row2 > *, .cta .in, #allinone .feature-copy, #booths .feature-copy, .scarcity')];
     targets.forEach(el => {
       el.classList.add('reveal');
       // escalona por posición dentro de su fila (grid de 3)
@@ -533,7 +585,8 @@ function plinthInquire(e){
   let done=false;
   function finish(){ if(done) return; done=true; intro.classList.add('lift'); document.body.classList.remove('pilock'); setTimeout(()=>{ intro.style.display='none'; },1150); }
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const t=setTimeout(finish, reduce?300:2300);
+  let seen=false; try{ seen=!!sessionStorage.getItem('plinth-intro'); sessionStorage.setItem('plinth-intro','1'); }catch(e){}
+  const t=setTimeout(finish, (reduce||seen)?300:2300);
   ['pointerdown','wheel','touchstart','keydown'].forEach(ev=>window.addEventListener(ev,function h(){ clearTimeout(t); finish(); window.removeEventListener(ev,h); },{passive:true}));
 })();
 </script>
