@@ -317,8 +317,8 @@ body.pilock{overflow:hidden}
 </section>
 
 <div class="mq mq-brands"><div>
-  <span>Fitted to what you play</span><b>●</b><span>Pioneer DJ</span><b>●</b><span>Denon DJ</span><b>●</b><span>RANE</span><b>●</b><span>Traktor</span><b>●</b><span>Technics</span><b>●</b><span>McIntosh</span><b>●</b><span>Accuphase</span><b>●</b><span>Naim</span><b>●</b><span>Devialet</span><b>●</b>
-  <span>Fitted to what you play</span><b>●</b><span>Pioneer DJ</span><b>●</b><span>Denon DJ</span><b>●</b><span>RANE</span><b>●</b><span>Traktor</span><b>●</b><span>Technics</span><b>●</b><span>McIntosh</span><b>●</b><span>Accuphase</span><b>●</b><span>Naim</span><b>●</b><span>Devialet</span><b>●</b>
+  <span>Pioneer DJ</span><b>●</b><span>Denon DJ</span><b>●</b><span>RANE</span><b>●</b><span>Traktor</span><b>●</b><span>Technics</span><b>●</b><span>McIntosh</span><b>●</b><span>Accuphase</span><b>●</b><span>Naim</span><b>●</b><span>Devialet</span><b>●</b>
+  <span>Pioneer DJ</span><b>●</b><span>Denon DJ</span><b>●</b><span>RANE</span><b>●</b><span>Traktor</span><b>●</b><span>Technics</span><b>●</b><span>McIntosh</span><b>●</b><span>Accuphase</span><b>●</b><span>Naim</span><b>●</b><span>Devialet</span><b>●</b>
 </div></div>
 
 <section class="sec" id="booths" style="padding-top:0">
@@ -532,13 +532,9 @@ window.PLINTH = { wa:'', email:'andremacouzetruiz@gmail.com', ig:'' };
   if(P.ig){ href('lnk-ig', 'https://instagram.com/'+P.ig); href('foot-ig', 'https://instagram.com/'+P.ig); }
   else { hide('lnk-ig'); hide('lnk-ig-sep'); hide('foot-ig'); }
   try {
-    var qs = new URLSearchParams(location.search);
-    var q = qs.get('piece');
+    var q = new URLSearchParams(location.search).get('piece');
     if(q){ var sel=document.querySelector('.inq select[name=piece]');
       if(sel){ for(var i=0;i<sel.options.length;i++){ if(sel.options[i].text.indexOf(q)===0){ sel.selectedIndex=i; break; } } } }
-    var fit = qs.get('fit');
-    if(fit){ var ta=document.querySelector('.inq textarea[name=msg]');
-      if(ta && !ta.value){ ta.value='Rider: '+fit; } }
   } catch(e){}
   // product-band CTAs prefill the form with their piece
   document.querySelectorAll('[data-piece]').forEach(function(a){
