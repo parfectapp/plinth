@@ -88,6 +88,12 @@ a{color:inherit;text-decoration:none}
 /* blueprint previews — the drawing IS the preview; click through for the real photos */
 .bp-static{object-fit:contain !important;padding:10%;background:var(--bone)}
 
+/* atelier — process contact sheet */
+.atgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:rgba(20,18,16,.14);border:1px solid rgba(20,18,16,.14);margin-top:44px}
+.at{background:var(--bone);position:relative;margin:0}
+.at img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5;display:block;filter:saturate(.92)}
+.at figcaption{position:absolute;left:12px;bottom:10px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--bone);background:rgba(20,18,16,.55);padding:5px 9px;backdrop-filter:blur(4px)}
+
 /* scarcity band */
 .scarcity{background:var(--bone2);border-top:1px solid rgba(20,18,16,.14);border-bottom:1px solid rgba(20,18,16,.14);text-align:center;padding:clamp(64px,9vw,110px) clamp(20px,4vw,48px)}
 .scarcity h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(34px,6vw,72px);margin:0 0 18px;line-height:1.05}
@@ -346,31 +352,31 @@ body.pilock{overflow:hidden}
   </div>
   <div class="lookstrip"><div class="looktrack" id="looktrack">
     <a class="look" href="producto.html?p=ingot&v=ink2">
-      <img src="plinth-look-3.png?v=look15" alt="INGOT at the garden window">
+      <img src="plinth-look-3.png?v=look16" alt="INGOT at the garden window">
       <span class="lk-num">Look 01 — The garden window</span>
       <span class="lk-name">INGOT</span>
       <span class="lk-cta">See the piece →</span>
     </a>
     <a class="look" href="producto.html?p=arco&v=ink2">
-      <img src="plinth-look-4.png?v=look15" alt="ARCO facing the lake">
+      <img src="plinth-look-4.png?v=look16" alt="ARCO facing the lake">
       <span class="lk-num">Look 02 — The lake house</span>
       <span class="lk-name">ARCO</span>
       <span class="lk-cta">See the piece →</span>
     </a>
     <a class="look" href="producto.html?p=arco&v=ink2">
-      <img src="plinth-look-7.png?v=look15" alt="ARCO in an interior courtyard">
+      <img src="plinth-look-7.png?v=look16" alt="ARCO in an interior courtyard">
       <span class="lk-num">Look 03 — The courtyard</span>
       <span class="lk-name">ARCO</span>
       <span class="lk-cta">See the piece →</span>
     </a>
     <a class="look" href="producto.html?p=ingot&v=ink2">
-      <img src="plinth-look-8.png?v=look15" alt="INGOT beside a dinner with friends">
+      <img src="plinth-look-8.png?v=look16" alt="INGOT beside a dinner with friends">
       <span class="lk-num">Look 04 — The long dinner</span>
       <span class="lk-name">INGOT</span>
       <span class="lk-cta">See the piece →</span>
     </a>
     <a class="look" href="producto.html?p=mirage&v=ink2">
-      <img src="plinth-look-9.png?v=look15" alt="MIRAGE facing the sea in a beach house">
+      <img src="plinth-look-9.png?v=look16" alt="MIRAGE facing the sea in a beach house">
       <span class="lk-num">Look 05 — The beach house</span>
       <span class="lk-name">MIRAGE</span>
       <span class="lk-cta">See the piece →</span>
@@ -381,7 +387,7 @@ body.pilock{overflow:hidden}
 
 <section class="feature" id="lived">
   <div class="feature-img">
-    <img src="plinth-look-7.png?v=look15" alt="ARCO in an interior courtyard" loading="lazy">
+    <img src="plinth-look-7.png?v=look16" alt="ARCO in an interior courtyard" loading="lazy">
   </div>
   <div class="feature-copy">
     <p class="hk">Lived with</p>
@@ -399,6 +405,20 @@ body.pilock{overflow:hidden}
       <h2>Cast, not assembled</h2>
       <p>Every booth is cast as a single piece — smoked glass, quarried stone, hand-laid tile or stone-textured resin. No visible fasteners, no seams. Your rider bolts straight in, and the equipment disappears into the object. Each shell carries a signed plate and its number in the edition.</p>
     </div>
+  </div>
+</section>
+
+<section class="sec atelier" id="atelier">
+  <div class="sh">
+    <div><p class="hk">The atelier</p><h2>Built by hand, under one roof.</h2></div>
+    <p>Every PLINTH is made by the same few hands in a single workshop — poured, polished, stitched and tuned. No line, no batch. One number at a time.</p>
+  </div>
+  <div class="atgrid">
+    <figure class="at"><img src="plinth-taller-1.png?v=at1" alt="Molten steel poured into the mold" loading="lazy"><figcaption>01 — The pour</figcaption></figure>
+    <figure class="at"><img src="plinth-taller-2.png?v=at1" alt="Polishing the steel by hand" loading="lazy"><figcaption>02 — The polish</figcaption></figure>
+    <figure class="at"><img src="plinth-taller-3.png?v=at1" alt="Stitching the leather tray" loading="lazy"><figcaption>03 — The stitch</figcaption></figure>
+    <figure class="at"><img src="plinth-taller-4.png?v=at1" alt="Drivers waiting on the bench" loading="lazy"><figcaption>04 — The voice</figcaption></figure>
+    <figure class="at"><img src="plinth-taller-5.png?v=at1" alt="Tuning the finished piece" loading="lazy"><figcaption>05 — The tune</figcaption></figure>
   </div>
 </section>
 
