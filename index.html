@@ -86,6 +86,15 @@ a{color:inherit;text-decoration:none}
 #speakers .card .ph img{object-fit:cover;padding:0}
 .btn.sm{padding:8px 14px;font-size:11px}
 
+/* blueprint preview — drawing slides down on hover to reveal the real photo */
+.bp-cover{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:10%;background:var(--bone);transition:transform .8s cubic-bezier(.76,0,.24,1);will-change:transform}
+.feature-img:hover .bp-cover{transform:translateY(101%)}
+.card .ph{position:relative}
+.card .ph .bp-cover{padding:6%}
+.card:hover .ph .bp-cover{transform:translateY(101%)}
+#speakers .card .ph img.bp-cover{object-fit:contain;padding:6%}
+@media(hover:none){.bp-cover{display:none}}
+
 /* scarcity band */
 .scarcity{background:var(--bone2);border-top:1px solid rgba(20,18,16,.14);border-bottom:1px solid rgba(20,18,16,.14);text-align:center;padding:clamp(64px,9vw,110px) clamp(20px,4vw,48px)}
 .scarcity h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(34px,6vw,72px);margin:0 0 18px;line-height:1.05}
@@ -284,7 +293,7 @@ body.pilock{overflow:hidden}
     <p>Booth, speakers and decks fused into a single cast sculpture. Nothing to assemble — you plug in and play.</p>
   </div>
   <div class="feature">
-    <div class="feature-img"><img src="plinth-foto-mirage.png?v=look13" alt="MIRAGE — all-in-one DJ sculpture" loading="lazy"></div>
+    <div class="feature-img"><img src="plinth-foto-mirage.png?v=look13" alt="MIRAGE — all-in-one DJ sculpture" loading="lazy"><img class="bp-cover" src="plinth-bp-mirage.svg?v=ink2" alt="" aria-hidden="true"></div>
     <div class="feature-copy">
       <p class="hk">MIRAGE — All-in-one</p>
       <h2 class="serif">The whole night, cast as one object.</h2>
@@ -302,7 +311,7 @@ body.pilock{overflow:hidden}
     <p>Sculptural DJ booths built around your rider. Pair them with any speakers, or with ours.</p>
   </div>
   <div class="feature rev">
-    <div class="feature-img"><img src="plinth-foto-arco.png?v=look13" alt="ARCO — sculptural DJ booth" loading="lazy"></div>
+    <div class="feature-img"><img src="plinth-foto-arco.png?v=look13" alt="ARCO — sculptural DJ booth" loading="lazy"><img class="bp-cover" src="plinth-bp-arco.svg?v=ink2" alt="" aria-hidden="true"></div>
     <div class="feature-copy">
       <p class="hk">ARCO — Booth</p>
       <h2 class="serif">One continuous arch of brushed steel.</h2>
@@ -321,8 +330,8 @@ body.pilock{overflow:hidden}
     <p>Loudspeakers as monuments — sold on their own, or paired with a booth to build your set.</p>
   </div>
   <div class="grid">
-    <a class="card" href="producto.html?p=geode&v=ink2"><span class="num">GEODE — SPEAKER</span><div class="ph"><img src="plinth-foto-geode.png?v=look13" alt="GEODE"></div><h3>GEODE</h3><p class="card-line">A faceted monolith that holds the room even in silence.</p><div class="row"><span>Edition of 8 · No. 4 unclaimed</span><b>$140,000</b></div></a>
-    <a class="card" href="producto.html?p=ingot&v=ink2"><span class="num">INGOT — SPEAKER</span><div class="ph"><img src="plinth-foto-ingot.png?v=look13" alt="INGOT"></div><h3>INGOT</h3><p class="card-line">The entry into the edition — one cast block, tuned by hand.</p><div class="row"><span>Edition of 6 · No. 3 unclaimed</span><b>$120,000</b></div></a>
+    <a class="card" href="producto.html?p=geode&v=ink2"><span class="num">GEODE — SPEAKER</span><div class="ph"><img src="plinth-foto-geode.png?v=look13" alt="GEODE"><img class="bp-cover" src="plinth-bp-geode.svg?v=ink2" alt="" aria-hidden="true"></div><h3>GEODE</h3><p class="card-line">A faceted monolith that holds the room even in silence.</p><div class="row"><span>Edition of 8 · No. 4 unclaimed</span><b>$140,000</b></div></a>
+    <a class="card" href="producto.html?p=ingot&v=ink2"><span class="num">INGOT — SPEAKER</span><div class="ph"><img src="plinth-foto-ingot.png?v=look13" alt="INGOT"><img class="bp-cover" src="plinth-bp-ingot.svg?v=ink2" alt="" aria-hidden="true"></div><h3>INGOT</h3><p class="card-line">The entry into the edition — one cast block, tuned by hand.</p><div class="row"><span>Edition of 6 · No. 3 unclaimed</span><b>$120,000</b></div></a>
   </div>
 </section>
 
