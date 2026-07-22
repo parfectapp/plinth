@@ -667,16 +667,10 @@ window.PLINTH = { wa:'', email:'andremacouzetruiz@gmail.com', ig:'' };
   }
   btn.addEventListener('click', function(){ playing?stop():start(); });
 
-  /* ---- autoplay the set on open ---- */
-  function autoStart(){ if(!playing) start(); }
-  /* try immediately — succeeds for returning visitors / browsers that allow it; harmless if blocked */
-  try{ autoStart(); }catch(e){}
-  /* guaranteed: the first interaction anywhere (the same tap/scroll that dismisses the intro) kicks it off */
-  function kick(){ autoStart(); ['pointerdown','touchstart','keydown','wheel','click'].forEach(function(ev){ window.removeEventListener(ev,kick,true); }); }
-  ['pointerdown','touchstart','keydown','wheel','click'].forEach(function(ev){ window.addEventListener(ev,kick,{capture:true,passive:true}); });
-  /* never pause on tab-switch; if a browser suspends the context in the background, resume it on return */
+  /* the set plays only when the visitor presses play — no autoplay.
+     once playing, keep it alive across tab switches: never pause on hide, and if a
+     browser suspends the context in the background, resume it when the tab returns */
   document.addEventListener('visibilitychange', function(){ if(!document.hidden && playing && AC && AC.state==='suspended') AC.resume(); });
-  window.PLINTHAudio={ start:start, stop:stop };
 })();
 function plinthInquire(e){
   e.preventDefault();
@@ -722,4 +716,15 @@ function plinthInquire(e){
   ['pointerdown','wheel','touchstart','keydown'].forEach(ev=>window.addEventListener(ev,function h(){ clearTimeout(t); finish(); window.removeEventListener(ev,h); },{passive:true}));
 })();
 </script>
+<!-- STUDIO AMR — sello de estudio -->
+<a href="https://studioamr.github.io/portafolio/" target="_blank" rel="noopener" class="studio-amr" aria-label="Studio AMR — ver portafolio"><span class="t">Studio AMR</span><i>.</i></a>
+<style>
+.studio-amr{position:fixed;top:16px;left:clamp(16px,4vw,26px);z-index:2147483000;font-family:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;white-space:nowrap;line-height:1;opacity:.9;transition:opacity .25s ease}
+.studio-amr .t{color:#fff;mix-blend-mode:difference}
+.studio-amr i{font-style:normal;color:#C96F2B}
+.studio-amr:hover{opacity:1}
+@media(max-width:600px){.studio-amr{font-size:11px;top:12px;letter-spacing:.13em}}
+</style>
+<!-- /STUDIO AMR -->
+
 </body></html>

@@ -64,6 +64,22 @@ main{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,48px) 120px}
 .specs li{display:flex;justify-content:space-between;gap:20px;font-family:'IBM Plex Mono',monospace;font-size:13px;padding:14px 0;border-top:1px solid rgba(20,18,16,.14)}
 .specs li span:last-child{color:var(--mut);text-align:right}
 
+/* drivers — the quality speaker inside, chosen per commission */
+.drivers-sec{max-width:860px;margin:0 auto}
+.drivers-lede{max-width:60ch;margin:0 auto 40px;text-align:center;color:var(--mut);line-height:1.6}
+.drivers{list-style:none;margin:0;padding:0}
+.driver{padding:22px 4px;border-top:1px solid rgba(20,18,16,.14)}
+.driver:last-child{border-bottom:1px solid rgba(20,18,16,.14)}
+.driver--sig{background:linear-gradient(90deg,rgba(201,111,43,.06),transparent 62%)}
+.driver-top{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 14px}
+.driver-brand{font-family:'Instrument Serif',serif;font-size:clamp(22px,3.4vw,32px);color:var(--ink);line-height:1}
+.driver-model{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;color:var(--mut)}
+.driver-tag{margin-left:auto;align-self:center;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);border:1px solid var(--amber);border-radius:2px;padding:3px 8px}
+.driver-type{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);opacity:.68;margin-top:11px}
+.driver-fit{margin:8px 0 0;color:var(--mut);line-height:1.55;max-width:66ch}
+.drivers-note{max-width:58ch;margin:38px auto 0;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.05em;color:var(--amber);line-height:1.7}
+@media(max-width:640px){.driver-tag{margin-left:0;order:3}}
+
 
 .cta{text-align:center}
 .cta .price{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);margin:0 0 24px}
@@ -126,6 +142,14 @@ main{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,48px) 120px}
     <ul id="pv-ficha"></ul>
   </section>
 
+  <section class="sec drivers-sec" id="pv-drivers" style="display:none">
+    <p class="hk">The engine inside</p>
+    <h2 class="serif">A reference speaker, cast in</h2>
+    <p class="drivers-lede" id="pv-drivers-lede"></p>
+    <ul class="drivers" id="pv-drivers-list"></ul>
+    <p class="drivers-note">You commission one instrument — the drivers, the object and the hand-tuning, crated and delivered together. One number, one price.</p>
+  </section>
+
   <section class="collab" id="pv-partners" style="display:none">
     <div class="collab-head">
       <p class="hk">In collaboration with</p>
@@ -168,7 +192,13 @@ main{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,48px) 120px}
       sub:'Two glossy-white speaker pods raised on steel posts over a double-lobe stainless base with two large glossy-white drivers. The glossy-white deck bridging them carries a leather-lined recess — and your 4-channel deck sits inside it, removable, never part of the table. The flagship.',
       bp:'plinth-bp-mirage.svg', hero:'plinth-cu-mirage-8.png',
       shots:[['plinth-cu-mirage-9.png','Detail — PLINTH, debossed in the leather'],['plinth-cu-mirage-5.png','Detail — a tower, faceless and calm'],['plinth-foto-mirage.png','In session — your rider in place'],['plinth-cu-mirage-7.png','The set from behind — no cables']],
-      ficha:[['Format','All-in-one · flagship'],['Shell','Stainless steel'],['Drivers','Glossy white, fine orange ring'],['Deck','Burnt-orange leather tray · removable 4-channel unit'],['Speakers','2 raised pods + 2 base drivers'],['Weight','~280 kg']] },
+      ficha:[['Format','All-in-one · flagship'],['Shell','Stainless steel'],['Drivers','Glossy white, fine orange ring'],['Deck','Burnt-orange leather tray · removable 4-channel unit'],['Speakers','2 raised pods + 2 base drivers'],['Weight','~280 kg']],
+      drivers:{ lede:'Two glossy-white pods, two woofers in the base — and inside them, an all-ceramic voice: hard corundum domes for glassy mids and highs, feeding two large light-cone woofers for taut, sculptural bass. Choose the set; we integrate, tune and cast it in by hand.',
+        options:[
+          {brand:'Accuton', model:'C90-6-078 · C25-6-158', type:'5-inch ceramic midrange + 1-inch ceramic dome — the raised pods', fit:'Off-white corundum matches the glossy-white pods; the near-massless reference top a flagship asks for.', sig:true},
+          {brand:'Accuton', model:'S280-6-282', type:'Two 11-inch ceramic-sandwich woofers — the base', fit:'Light-ceramic cones fill the double-lobe base — one coherent ceramic voice, top to bottom.'},
+          {brand:'SEAS Excel', model:'W26FX001', type:'10-inch die-cast magnesium-cone woofer', fit:'Silvery magnesium reads glossy-white — statement bass, if you prefer metal to ceramic.'}
+        ] } },
     arco: { num:'PLINTH 06', nombre:'ARCO', precio:'$220,000', edicion:'EDITION OF 6', tipo:'BOOTH',
       sub:'A single sweep of stainless steel, arched like a bridge, an orange-leather bay recessed flush into its crown for the gear. Molten metal frozen mid-pour.',
       bp:'plinth-bp-arco.svg', hero:'plinth-foto-arco-logo.png',
@@ -178,12 +208,24 @@ main{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,48px) 120px}
       sub:'A faceted stainless-steel dodecahedron, a glossy-white driver ringed in a fine line of orange on every face, radiating sound in all directions on a slim steel tripod. An omnidirectional monument.',
       bp:'plinth-bp-geode.svg', hero:'plinth-foto-geode.png',
       shots:[['plinth-cu-geode-1.png','Detail — one face, one driver'],['plinth-cu-geode-3.png','Detail — the tripod joint'],['plinth-cu-geode-7.png','GEODE, whole'],['plinth-cu-geode-8.png','Delivered — the crate, opened at home']],
-      ficha:[['Format','Speaker — omnidirectional'],['Body','Stainless faceted steel'],['Drivers','12 faces · glossy-white cones, fine orange ring'],['Stand','Machined steel tripod'],['Weight','~48 kg'],['Lead time','12–16 weeks']] },
+      ficha:[['Format','Speaker — omnidirectional'],['Body','Stainless faceted steel'],['Drivers','12 faces · glossy-white cones, fine orange ring'],['Stand','Machined steel tripod'],['Weight','~48 kg'],['Lead time','12–16 weeks']],
+      drivers:{ lede:'Twelve small full-range drivers, one per face, each covering the whole band with no crossover — so the sculpture radiates one coherent field in every direction at once.',
+        options:[
+          {brand:'Accuton', model:'C51-6-286 · Cell', type:'2-inch ceramic-cone wideband — one per face', fit:'Glossy ivory-white ceramic is the exact look of the white face and orange ring — small enough for all twelve.', sig:true},
+          {brand:'Mark Audio', model:'Alpair 5.3', type:'50 mm magnesium full-range', fit:'Built for very broad directivity and array use — a true single-driver full-range, coherent all around.'},
+          {brand:'Scan-Speak', model:'10F/8414G10 · Discovery', type:'3.5-inch full-range', fit:'Reference small full-range for the most real bandwidth from one cone, custom-finished glossy white.'}
+        ] } },
     ingot: { num:'PLINTH 10', nombre:'INGOT', precio:'$120,000', edicion:'EDITION OF 6', tipo:'SPEAKER',
       sub:'A stainless-steel block with a full-range driver on its face and twin glossy white ceramic horns rising from the top. Raw industry, tuned like a watch.',
       bp:'plinth-bp-ingot.svg', hero:'plinth-foto-ingot.png',
       shots:[['plinth-cu-ingot-1.png','Detail — the ceramic bell'],['plinth-cu-ingot-3.png','Detail — the driver in the block'],['plinth-cu-ingot-4.png','Detail — the block edge'],['plinth-cu-ingot-5.png','Detail — ceramic meets steel'],['plinth-cu-ingot-6.png','Detail — the isolation feet'],['plinth-cu-ingot-7.png','INGOT, whole'],['plinth-cu-ingot-8.png','Delivered — the crate, opened at home']],
-      ficha:[['Format','Speaker — standalone or pair'],['Body','Stainless steel block'],['Horns','Twin glossy white ceramic'],['Driver','Full-range'],['Weight','~85 kg'],['Lead time','12–16 weeks']] },
+      ficha:[['Format','Speaker — standalone or pair'],['Body','Stainless steel block'],['Horns','Twin glossy white ceramic'],['Driver','Full-range'],['Weight','~85 kg'],['Lead time','12–16 weeks']],
+      drivers:{ lede:'One reference full-range driver on the steel face carries the whole voice as a point source, while twin convex white-ceramic domes crown the top plate for air and ultra-low-distortion detail.',
+        options:[
+          {brand:'Voxativ', model:'AC-X Fieldcoil', type:'8-inch full-range field-coil · 20 Hz–20 kHz — the face', fit:'One point-source voice for the entire band; hand-built field-coil, jewellery-grade to match.', sig:true},
+          {brand:'Accuton', model:'C25-6-158 · Cell', type:'Twin 1-inch white ceramic domes — the top horns', fit:'A glossy convex white ceramic dome is the aesthetic of the twin horns rising from the top.'},
+          {brand:'Cube Audio', model:'F8 Neo · V2', type:'8-inch full-range · 97 dB', fit:'Simpler face driver — no external supply — offered in white to echo the ceramic crown.'}
+        ] } },
   };
 
   const clave = new URLSearchParams(location.search).get('p') || 'mirage';
@@ -213,6 +255,19 @@ main{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,48px) 120px}
   });
 
   document.getElementById('pv-ficha').innerHTML = o.ficha.map(f => '<li><span>' + f[0] + '</span><span>' + f[1] + '</span></li>').join('');
+
+  // The engine inside — the quality drivers you commission with the object (speaker pieces only, not the ARCO booth)
+  if (['mirage','geode','ingot'].includes(clave) && o.drivers) {
+    document.getElementById('pv-drivers-lede').textContent = o.drivers.lede;
+    document.getElementById('pv-drivers-list').innerHTML = o.drivers.options.map(op =>
+      '<li class="driver' + (op.sig ? ' driver--sig' : '') + '">' +
+        '<div class="driver-top"><span class="driver-brand">' + op.brand + '</span>' +
+        '<span class="driver-model">' + op.model + '</span>' +
+        (op.sig ? '<span class="driver-tag">Signature</span>' : '') + '</div>' +
+        '<div class="driver-type">' + op.type + '</div>' +
+        '<p class="driver-fit">' + op.fit + '</p></li>').join('');
+    document.getElementById('pv-drivers').style.display = '';
+  }
 
   // Sound & signal partners — only on pieces with integrated speakers (not the ARCO booth)
   if (['mirage','geode','ingot'].includes(clave)) document.getElementById('pv-partners').style.display = '';
